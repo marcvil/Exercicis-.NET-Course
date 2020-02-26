@@ -32,7 +32,7 @@ namespace A3_DbContext
             if (string.IsNullOrEmpty(name))
             {
                 tempName.ValidationSuccesful = false;
-                Console.WriteLine("name null or empty");
+                tempName.Messages.Add("name null or empty.");
             }
             #endregion
 
@@ -54,7 +54,7 @@ namespace A3_DbContext
             if (string.IsNullOrEmpty(mail))
             {
                 tempMail.ValidationSuccesful = false;
-                Console.WriteLine("mail null or empty");
+                tempMail.Messages.Add("mail null or empty.");
             }
             #endregion
 

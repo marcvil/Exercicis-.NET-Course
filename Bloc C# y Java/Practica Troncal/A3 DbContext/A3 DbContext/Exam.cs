@@ -7,6 +7,10 @@ namespace A3_DbContext
         public double FinalMark { get; set; }
         public DateTime ExamDate { get; set; }
 
+        public Student Student { get; set; }
+
+        public Subject Subject { get; set; }
+
         public Exam()
         {
 
@@ -28,6 +32,7 @@ namespace A3_DbContext
             if (string.IsNullOrEmpty(finalmark))
             {
                 tempfinalMark.ValidationSuccesful = false;
+                tempfinalMark.Messages.Add("finalmark null or empty.");
             }
             #endregion
 
@@ -38,6 +43,7 @@ namespace A3_DbContext
             if (!conversionvalid)
             {
                 tempfinalMark.ValidationSuccesful = false;
+                tempfinalMark.Messages.Add("finalmark conversion failed");
             }
             #endregion
 

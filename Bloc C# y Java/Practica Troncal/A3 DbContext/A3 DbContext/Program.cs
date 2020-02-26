@@ -150,11 +150,22 @@ namespace A3_DbContext
                 }
                 else if (option == 3)
                 {
-
+                   
                 }
                 else if (option == 4)
                 {
                     Console.Clear();
+                    Console.WriteLine("Escribe el DNI");
+                    string inputDni = Console.ReadLine();
+                    if (DbContext.studentByDni.ContainsKey(inputDni))
+                    {
+                        DbContext.DeleteStudent(DbContext.studentByDni[inputDni]);
+                        DbContext.DeleteStudent(DbContext.studentList[DbContext.studentByDni[inputDni].Id]);
+                    }
+                    else
+                    {
+                        Console.WriteLine("No existe el alumno");
+                    }
 
                 }
                 else if (option == 5)

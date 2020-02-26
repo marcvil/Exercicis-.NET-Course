@@ -31,6 +31,7 @@ namespace A3_DbContext
             if (string.IsNullOrEmpty(subjectname))
             {
                 tempsubjectName.ValidationSuccesful = false;
+                tempsubjectName.Messages.Add("subjectName null or empty.");
             }
             #endregion
 

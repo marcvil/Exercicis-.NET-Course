@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace A3_DbContext
 {
@@ -8,6 +10,14 @@ namespace A3_DbContext
         public int LockerKeyNumber { get; set; }
 
         public string Dni { get; set; }
+
+        public List<Exam> Exams
+        {
+            get
+            {
+                return DbContext.examList.Values.Where(e => e.Student.Id == this.Id).ToList();
+            }
+        }
 
         public Student(int lockerKeyNumber, string dni, string name, string mail)
         {
@@ -40,7 +50,7 @@ namespace A3_DbContext
             if (!parsedConversion)
             {
                 tempLockerkeyNumber.ValidationSuccesful = false;
-                Console.WriteLine("Conversion to Int Failed");
+                tempLockerkeyNumber.Messages.Add("Locker key conversion failed");
             }
             #endregion
 
@@ -62,7 +72,7 @@ namespace A3_DbContext
             if (string.IsNullOrEmpty(dniNumber))
             {
                 tempIdSubject.ValidationSuccesful = false;
-                Console.WriteLine("Strng null or empty");
+                tempIdSubject.Messages.Add("dninumber null or empty.");
             }
             #endregion
 

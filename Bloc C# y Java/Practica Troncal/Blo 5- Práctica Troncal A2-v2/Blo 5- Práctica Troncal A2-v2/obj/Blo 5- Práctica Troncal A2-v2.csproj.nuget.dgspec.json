@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\formacio\\Desktop\\Marc\\Exercicis\\.NET-course\\Bloc C# y Java\\Practica Troncal\\Blo 5- Práctica Troncal A2-v2\\Blo 5- Práctica Troncal A2-v2\\Blo 5- Práctica Troncal A2-v2\\Blo 5- Práctica Troncal A2-v2.csproj": {}
+    "C:\\Users\\formacio\\Desktop\\Marc\\Exercicis\\Exercicis-.NET-Course\\Bloc C# y Java\\Practica Troncal\\Blo 5- Práctica Troncal A2-v2\\Blo 5- Práctica Troncal A2-v2\\Blo 5- Práctica Troncal A2-v2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\formacio\\Desktop\\Marc\\Exercicis\\.NET-course\\Bloc C# y Java\\Practica Troncal\\Blo 5- Práctica Troncal A2-v2\\Blo 5- Práctica Troncal A2-v2\\Blo 5- Práctica Troncal A2-v2\\Blo 5- Práctica Troncal A2-v2.csproj": {
+    "C:\\Users\\formacio\\Desktop\\Marc\\Exercicis\\Exercicis-.NET-Course\\Bloc C# y Java\\Practica Troncal\\Blo 5- Práctica Troncal A2-v2\\Blo 5- Práctica Troncal A2-v2\\Blo 5- Práctica Troncal A2-v2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\formacio\\Desktop\\Marc\\Exercicis\\.NET-course\\Bloc C# y Java\\Practica Troncal\\Blo 5- Práctica Troncal A2-v2\\Blo 5- Práctica Troncal A2-v2\\Blo 5- Práctica Troncal A2-v2\\Blo 5- Práctica Troncal A2-v2.csproj",
+        "projectUniqueName": "C:\\Users\\formacio\\Desktop\\Marc\\Exercicis\\Exercicis-.NET-Course\\Bloc C# y Java\\Practica Troncal\\Blo 5- Práctica Troncal A2-v2\\Blo 5- Práctica Troncal A2-v2\\Blo 5- Práctica Troncal A2-v2.csproj",
         "projectName": "Blo 5- Práctica Troncal A2-v2",
-        "projectPath": "C:\\Users\\formacio\\Desktop\\Marc\\Exercicis\\.NET-course\\Bloc C# y Java\\Practica Troncal\\Blo 5- Práctica Troncal A2-v2\\Blo 5- Práctica Troncal A2-v2\\Blo 5- Práctica Troncal A2-v2\\Blo 5- Práctica Troncal A2-v2.csproj",
+        "projectPath": "C:\\Users\\formacio\\Desktop\\Marc\\Exercicis\\Exercicis-.NET-Course\\Bloc C# y Java\\Practica Troncal\\Blo 5- Práctica Troncal A2-v2\\Blo 5- Práctica Troncal A2-v2\\Blo 5- Práctica Troncal A2-v2.csproj",
         "packagesPath": "C:\\Users\\formacio\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\formacio\\Desktop\\Marc\\Exercicis\\.NET-course\\Bloc C# y Java\\Practica Troncal\\Blo 5- Práctica Troncal A2-v2\\Blo 5- Práctica Troncal A2-v2\\Blo 5- Práctica Troncal A2-v2\\obj\\",
+        "outputPath": "C:\\Users\\formacio\\Desktop\\Marc\\Exercicis\\Exercicis-.NET-Course\\Bloc C# y Java\\Practica Troncal\\Blo 5- Práctica Troncal A2-v2\\Blo 5- Práctica Troncal A2-v2\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\formacio\\AppData\\Roaming\\NuGet\\NuGet.Config",

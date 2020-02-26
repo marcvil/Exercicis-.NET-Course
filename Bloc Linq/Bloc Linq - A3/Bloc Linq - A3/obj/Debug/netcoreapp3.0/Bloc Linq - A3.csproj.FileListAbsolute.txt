@@ -1,0 +1,10 @@
+C:\Users\formacio\Desktop\Marc\Exercicis\.NET-course\Bloc Linq\Bloc Linq - A3\Bloc Linq - A3\bin\Debug\netcoreapp3.0\Bloc Linq - A3.exe
+C:\Users\formacio\Desktop\Marc\Exercicis\.NET-course\Bloc Linq\Bloc Linq - A3\Bloc Linq - A3\bin\Debug\netcoreapp3.0\Bloc Linq - A3.deps.json
+C:\Users\formacio\Desktop\Marc\Exercicis\.NET-course\Bloc Linq\Bloc Linq - A3\Bloc Linq - A3\bin\Debug\netcoreapp3.0\Bloc Linq - A3.runtimeconfig.json
+C:\Users\formacio\Desktop\Marc\Exercicis\.NET-course\Bloc Linq\Bloc Linq - A3\Bloc Linq - A3\bin\Debug\netcoreapp3.0\Bloc Linq - A3.runtimeconfig.dev.json
+C:\Users\formacio\Desktop\Marc\Exercicis\.NET-course\Bloc Linq\Bloc Linq - A3\Bloc Linq - A3\bin\Debug\netcoreapp3.0\Bloc Linq - A3.dll
+C:\Users\formacio\Desktop\Marc\Exercicis\.NET-course\Bloc Linq\Bloc Linq - A3\Bloc Linq - A3\bin\Debug\netcoreapp3.0\Bloc Linq - A3.pdb
+C:\Users\formacio\Desktop\Marc\Exercicis\.NET-course\Bloc Linq\Bloc Linq - A3\Bloc Linq - A3\obj\Debug\netcoreapp3.0\Bloc Linq - A3.AssemblyInfoInputs.cache
+C:\Users\formacio\Desktop\Marc\Exercicis\.NET-course\Bloc Linq\Bloc Linq - A3\Bloc Linq - A3\obj\Debug\netcoreapp3.0\Bloc Linq - A3.AssemblyInfo.cs
+C:\Users\formacio\Desktop\Marc\Exercicis\.NET-course\Bloc Linq\Bloc Linq - A3\Bloc Linq - A3\obj\Debug\netcoreapp3.0\Bloc Linq - A3.dll
+C:\Users\formacio\Desktop\Marc\Exercicis\.NET-course\Bloc Linq\Bloc Linq - A3\Bloc Linq - A3\obj\Debug\netcoreapp3.0\Bloc Linq - A3.pdb

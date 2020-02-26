@@ -1,0 +1,11 @@
+C:\Users\formacio\Documents\GitHub\.NET-course\Bloc C# y Java\Bloc exercici lletres\Bloc 2 - Actividad 2\Bloc 2 - Actividad 2\bin\Debug\netcoreapp3.0\Bloc 2 - Actividad 2.exe
+C:\Users\formacio\Documents\GitHub\.NET-course\Bloc C# y Java\Bloc exercici lletres\Bloc 2 - Actividad 2\Bloc 2 - Actividad 2\bin\Debug\netcoreapp3.0\Bloc 2 - Actividad 2.deps.json
+C:\Users\formacio\Documents\GitHub\.NET-course\Bloc C# y Java\Bloc exercici lletres\Bloc 2 - Actividad 2\Bloc 2 - Actividad 2\bin\Debug\netcoreapp3.0\Bloc 2 - Actividad 2.runtimeconfig.json
+C:\Users\formacio\Documents\GitHub\.NET-course\Bloc C# y Java\Bloc exercici lletres\Bloc 2 - Actividad 2\Bloc 2 - Actividad 2\bin\Debug\netcoreapp3.0\Bloc 2 - Actividad 2.runtimeconfig.dev.json
+C:\Users\formacio\Documents\GitHub\.NET-course\Bloc C# y Java\Bloc exercici lletres\Bloc 2 - Actividad 2\Bloc 2 - Actividad 2\bin\Debug\netcoreapp3.0\Bloc 2 - Actividad 2.dll
+C:\Users\formacio\Documents\GitHub\.NET-course\Bloc C# y Java\Bloc exercici lletres\Bloc 2 - Actividad 2\Bloc 2 - Actividad 2\bin\Debug\netcoreapp3.0\Bloc 2 - Actividad 2.pdb
+C:\Users\formacio\Documents\GitHub\.NET-course\Bloc C# y Java\Bloc exercici lletres\Bloc 2 - Actividad 2\Bloc 2 - Actividad 2\obj\Debug\netcoreapp3.0\Bloc 2 - Actividad 2.csprojAssemblyReference.cache
+C:\Users\formacio\Documents\GitHub\.NET-course\Bloc C# y Java\Bloc exercici lletres\Bloc 2 - Actividad 2\Bloc 2 - Actividad 2\obj\Debug\netcoreapp3.0\Bloc 2 - Actividad 2.AssemblyInfoInputs.cache
+C:\Users\formacio\Documents\GitHub\.NET-course\Bloc C# y Java\Bloc exercici lletres\Bloc 2 - Actividad 2\Bloc 2 - Actividad 2\obj\Debug\netcoreapp3.0\Bloc 2 - Actividad 2.AssemblyInfo.cs
+C:\Users\formacio\Documents\GitHub\.NET-course\Bloc C# y Java\Bloc exercici lletres\Bloc 2 - Actividad 2\Bloc 2 - Actividad 2\obj\Debug\netcoreapp3.0\Bloc 2 - Actividad 2.dll
+C:\Users\formacio\Documents\GitHub\.NET-course\Bloc C# y Java\Bloc exercici lletres\Bloc 2 - Actividad 2\Bloc 2 - Actividad 2\obj\Debug\netcoreapp3.0\Bloc 2 - Actividad 2.pdb

@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+<body>
+
+    <script>
+            var startYear = 1948;
+    var birthYear = 1994;
+
+    var i = 1948;
+
+    console.log("Los años bisiestos entre el 1948 y el año de mi nacimiento (1994) son los siguinetes: \n");
+    document.write("Los años bisiestos entre el 1948 y el año de mi nacimiento (1994) son los siguinetes: <br>");
+   
+
+    for (i = 1948; i <= birthYear; i++)
+        {
+        var modulus4 = (i - startYear) % 4;
+
+        if (modulus4 == 0) {
+
+            console.log(i);
+            document.write(i + "<br>");
+            }
+        }
+    </script>
+
+</body>
+</html>

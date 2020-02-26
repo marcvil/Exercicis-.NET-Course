@@ -1,0 +1,11 @@
+C:\Users\formacio\Desktop\Marc\Exercicis\.NET-course\Bloc C# y Java\Bloc exercici lletres\Bloc 2 - Actividad 3\Bloc 2 - Actividad 3\obj\Debug\netcoreapp3.0\Bloc 2 - Actividad 3.csprojAssemblyReference.cache
+C:\Users\formacio\Desktop\Marc\Exercicis\.NET-course\Bloc C# y Java\Bloc exercici lletres\Bloc 2 - Actividad 3\Bloc 2 - Actividad 3\obj\Debug\netcoreapp3.0\Bloc 2 - Actividad 3.AssemblyInfoInputs.cache
+C:\Users\formacio\Desktop\Marc\Exercicis\.NET-course\Bloc C# y Java\Bloc exercici lletres\Bloc 2 - Actividad 3\Bloc 2 - Actividad 3\obj\Debug\netcoreapp3.0\Bloc 2 - Actividad 3.AssemblyInfo.cs
+C:\Users\formacio\Desktop\Marc\Exercicis\.NET-course\Bloc C# y Java\Bloc exercici lletres\Bloc 2 - Actividad 3\Bloc 2 - Actividad 3\bin\Debug\netcoreapp3.0\Bloc 2 - Actividad 3.exe
+C:\Users\formacio\Desktop\Marc\Exercicis\.NET-course\Bloc C# y Java\Bloc exercici lletres\Bloc 2 - Actividad 3\Bloc 2 - Actividad 3\bin\Debug\netcoreapp3.0\Bloc 2 - Actividad 3.deps.json
+C:\Users\formacio\Desktop\Marc\Exercicis\.NET-course\Bloc C# y Java\Bloc exercici lletres\Bloc 2 - Actividad 3\Bloc 2 - Actividad 3\bin\Debug\netcoreapp3.0\Bloc 2 - Actividad 3.runtimeconfig.json
+C:\Users\formacio\Desktop\Marc\Exercicis\.NET-course\Bloc C# y Java\Bloc exercici lletres\Bloc 2 - Actividad 3\Bloc 2 - Actividad 3\bin\Debug\netcoreapp3.0\Bloc 2 - Actividad 3.runtimeconfig.dev.json
+C:\Users\formacio\Desktop\Marc\Exercicis\.NET-course\Bloc C# y Java\Bloc exercici lletres\Bloc 2 - Actividad 3\Bloc 2 - Actividad 3\bin\Debug\netcoreapp3.0\Bloc 2 - Actividad 3.dll
+C:\Users\formacio\Desktop\Marc\Exercicis\.NET-course\Bloc C# y Java\Bloc exercici lletres\Bloc 2 - Actividad 3\Bloc 2 - Actividad 3\bin\Debug\netcoreapp3.0\Bloc 2 - Actividad 3.pdb
+C:\Users\formacio\Desktop\Marc\Exercicis\.NET-course\Bloc C# y Java\Bloc exercici lletres\Bloc 2 - Actividad 3\Bloc 2 - Actividad 3\obj\Debug\netcoreapp3.0\Bloc 2 - Actividad 3.dll
+C:\Users\formacio\Desktop\Marc\Exercicis\.NET-course\Bloc C# y Java\Bloc exercici lletres\Bloc 2 - Actividad 3\Bloc 2 - Actividad 3\obj\Debug\netcoreapp3.0\Bloc 2 - Actividad 3.pdb

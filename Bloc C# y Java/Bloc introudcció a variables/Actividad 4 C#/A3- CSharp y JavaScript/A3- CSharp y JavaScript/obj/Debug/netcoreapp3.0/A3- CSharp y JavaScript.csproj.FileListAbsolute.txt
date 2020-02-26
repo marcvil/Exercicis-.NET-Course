@@ -1,0 +1,11 @@
+C:\Users\formacio\Documents\GitHub\.NET-course\Actividad 4 C#\A3- CSharp y JavaScript\A3- CSharp y JavaScript\obj\Debug\netcoreapp3.0\A3- CSharp y JavaScript.csprojAssemblyReference.cache
+C:\Users\formacio\Documents\GitHub\.NET-course\Actividad 4 C#\A3- CSharp y JavaScript\A3- CSharp y JavaScript\obj\Debug\netcoreapp3.0\A3- CSharp y JavaScript.AssemblyInfoInputs.cache
+C:\Users\formacio\Documents\GitHub\.NET-course\Actividad 4 C#\A3- CSharp y JavaScript\A3- CSharp y JavaScript\obj\Debug\netcoreapp3.0\A3- CSharp y JavaScript.AssemblyInfo.cs
+C:\Users\formacio\Documents\GitHub\.NET-course\Actividad 4 C#\A3- CSharp y JavaScript\A3- CSharp y JavaScript\bin\Debug\netcoreapp3.0\A3- CSharp y JavaScript.exe
+C:\Users\formacio\Documents\GitHub\.NET-course\Actividad 4 C#\A3- CSharp y JavaScript\A3- CSharp y JavaScript\bin\Debug\netcoreapp3.0\A3- CSharp y JavaScript.deps.json
+C:\Users\formacio\Documents\GitHub\.NET-course\Actividad 4 C#\A3- CSharp y JavaScript\A3- CSharp y JavaScript\bin\Debug\netcoreapp3.0\A3- CSharp y JavaScript.runtimeconfig.json
+C:\Users\formacio\Documents\GitHub\.NET-course\Actividad 4 C#\A3- CSharp y JavaScript\A3- CSharp y JavaScript\bin\Debug\netcoreapp3.0\A3- CSharp y JavaScript.runtimeconfig.dev.json
+C:\Users\formacio\Documents\GitHub\.NET-course\Actividad 4 C#\A3- CSharp y JavaScript\A3- CSharp y JavaScript\bin\Debug\netcoreapp3.0\A3- CSharp y JavaScript.dll
+C:\Users\formacio\Documents\GitHub\.NET-course\Actividad 4 C#\A3- CSharp y JavaScript\A3- CSharp y JavaScript\bin\Debug\netcoreapp3.0\A3- CSharp y JavaScript.pdb
+C:\Users\formacio\Documents\GitHub\.NET-course\Actividad 4 C#\A3- CSharp y JavaScript\A3- CSharp y JavaScript\obj\Debug\netcoreapp3.0\A3- CSharp y JavaScript.dll
+C:\Users\formacio\Documents\GitHub\.NET-course\Actividad 4 C#\A3- CSharp y JavaScript\A3- CSharp y JavaScript\obj\Debug\netcoreapp3.0\A3- CSharp y JavaScript.pdb

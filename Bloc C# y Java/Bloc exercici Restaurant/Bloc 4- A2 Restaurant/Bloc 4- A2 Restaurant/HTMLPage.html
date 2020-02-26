@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>
+        Bloc 2 - Actividad 4 restaurante
+    </title>
+</head>
+<body>
+    <p id="textoPlato1">Plato 1</p>
+    <input type="text" name="Plato 1" id="inputPlato1" /><br>
+    <p id="textoPrecio1">PrecioPlato 1</p>
+    <input type="text" name="PrecioPlato 1" id="inputPrecioPlato1" /><br>
+
+    <p id="textoPlato2">Plato 2</p>
+    <input type="text" name="Plato 2" id="inputPlato2" /><br>
+    <p id="textoPrecio2">PrecioPlato 2</p>
+    <input type="text" name="PrecioPlato 2" id="inputPrecioPlato2" /><br>
+
+    <p id="textoPlato3">Plato 3</p>
+    <input type="text" name="Plato 3" id="inputPlato3" /><br>
+    <p id="textoPrecio3">PrecioPlato 3</p>
+    <input type="text" name="PrecioPlato 3" id="inputPrecioPlato3" /><br>
+
+    <p id="textoPlato4">Plato 4</p>
+    <input type="text" name="Plato 4" id="inputPlato4" /><br>
+    <p id="textoPrecio4">PrecioPlato 4</p>
+    <input type="text" name="PrecioPlato 4" id="inputPrecioPlato4" /><br>
+
+    <p id="textoPlato5">Plato 5</p>
+    <input type="text" name="Plato 5" id="inputPlato5" /><br>
+    <p id="textoPrecio5">PrecioPlato 5</p>
+    <input type="text" name="PrecioPlato 5" id="inputPrecioPlato5" /><br>
+
+    <p id="textoPlato6">Plato 6</p>
+    <input type="text" name="Plato 6" id="inputPlato6" /><br>
+    <p id="textoPrecio6">PrecioPlato 6</p>
+    <input type="text" name="PrecioPlato 6" id="inputPrecioPlato6" /><br>
+
+    <button id="buttonCrearLista" onclick="CrearArray();"> Añade los platos</button>
+    <br>
+    <input type="text" name="text" id="inputListaComida" disabled />
+    <button id="buttonCrearLista" onclick="PedirComida();">Pedir Plato Comida</button>
+
+    <br>
+    <input type="text" name="text" id="MostrarPrecio" />
+    <button id="buttonMostrarPrecio" onclick="MostrarPrecio();">Mostrar Precio</button>
+
+    <br>
+    <p id="precioText"></p>
+    <script>
+        var platosList = [];
+        var preciosList = [];
+
+        var clienteList = [];
+
+
+        var precioTotal = 0;
+        function CrearArray() {
+            platosList.push(inputPlato1);
+            platosList.push(inputPlato2);
+            platosList.push(inputPlato3);
+            platosList.push(inputPlato4);
+            platosList.push(inputPlato5);
+            platosList.push(inputPlato6);
+
+            preciosList.push(inputPlato1);
+            preciosList.push(inputPlato2);
+            preciosList.push(inputPlato3);
+            preciosList.push(inputPlato4);
+            preciosList.push(inputPlato5);
+            preciosList.push(inputPlato6);
+
+            document.getElementById("inputListaComida").disabled = false;
+            document.getElementById("buttonCrearLista").disabled = false;
+        }
+
+        function PedirComida() {
+            var inputText = document.getElementById("inputListaComida").value;
+
+            for (var i = 0; i < platosList; i++) {
+                if (inputText == platosList[i]) {
+                    clienteList.push(inputText);
+                    precioTotal = precioTotal + preciosList[i];
+                }
+                else { continue; }
+            }
+            document.getElementById("inputListaComida").value = "";
+
+
+        }
+
+        function MostrarPrecio() {
+            document.getElementById("precioText").innerHTML = precioTotal;
+        }
+    </script>
+
+</body>
+</html>

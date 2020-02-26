@@ -1,0 +1,11 @@
+C:\Users\formacio\Desktop\Marc\Exercicis\.NET-course\Bloc Linq\Bloc Linq - A4\Bloc Linq - A4\bin\Debug\netcoreapp3.0\Bloc Linq - A4.exe
+C:\Users\formacio\Desktop\Marc\Exercicis\.NET-course\Bloc Linq\Bloc Linq - A4\Bloc Linq - A4\bin\Debug\netcoreapp3.0\Bloc Linq - A4.deps.json
+C:\Users\formacio\Desktop\Marc\Exercicis\.NET-course\Bloc Linq\Bloc Linq - A4\Bloc Linq - A4\bin\Debug\netcoreapp3.0\Bloc Linq - A4.runtimeconfig.json
+C:\Users\formacio\Desktop\Marc\Exercicis\.NET-course\Bloc Linq\Bloc Linq - A4\Bloc Linq - A4\bin\Debug\netcoreapp3.0\Bloc Linq - A4.runtimeconfig.dev.json
+C:\Users\formacio\Desktop\Marc\Exercicis\.NET-course\Bloc Linq\Bloc Linq - A4\Bloc Linq - A4\bin\Debug\netcoreapp3.0\Bloc Linq - A4.dll
+C:\Users\formacio\Desktop\Marc\Exercicis\.NET-course\Bloc Linq\Bloc Linq - A4\Bloc Linq - A4\bin\Debug\netcoreapp3.0\Bloc Linq - A4.pdb
+C:\Users\formacio\Desktop\Marc\Exercicis\.NET-course\Bloc Linq\Bloc Linq - A4\Bloc Linq - A4\obj\Debug\netcoreapp3.0\Bloc Linq - A4.csprojAssemblyReference.cache
+C:\Users\formacio\Desktop\Marc\Exercicis\.NET-course\Bloc Linq\Bloc Linq - A4\Bloc Linq - A4\obj\Debug\netcoreapp3.0\Bloc Linq - A4.AssemblyInfoInputs.cache
+C:\Users\formacio\Desktop\Marc\Exercicis\.NET-course\Bloc Linq\Bloc Linq - A4\Bloc Linq - A4\obj\Debug\netcoreapp3.0\Bloc Linq - A4.AssemblyInfo.cs
+C:\Users\formacio\Desktop\Marc\Exercicis\.NET-course\Bloc Linq\Bloc Linq - A4\Bloc Linq - A4\obj\Debug\netcoreapp3.0\Bloc Linq - A4.dll
+C:\Users\formacio\Desktop\Marc\Exercicis\.NET-course\Bloc Linq\Bloc Linq - A4\Bloc Linq - A4\obj\Debug\netcoreapp3.0\Bloc Linq - A4.pdb

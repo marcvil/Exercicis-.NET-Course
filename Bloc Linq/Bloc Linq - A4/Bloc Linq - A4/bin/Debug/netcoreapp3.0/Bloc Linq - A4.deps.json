@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.0": {
+      "Bloc Linq - A4/1.0.0": {
+        "runtime": {
+          "Bloc Linq - A4.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Bloc Linq - A4/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

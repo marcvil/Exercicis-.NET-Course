@@ -1,0 +1,11 @@
+C:\Users\formacio\Documents\GitHub\.NET-course\Bloc C# y Java\Bloc exercici lletres\Bloc2- A1 CSharp y javascript\Bloc2- A1 CSharp y javascript\bin\Debug\netcoreapp3.0\Bloc2- A1 CSharp y javascript.exe
+C:\Users\formacio\Documents\GitHub\.NET-course\Bloc C# y Java\Bloc exercici lletres\Bloc2- A1 CSharp y javascript\Bloc2- A1 CSharp y javascript\bin\Debug\netcoreapp3.0\Bloc2- A1 CSharp y javascript.deps.json
+C:\Users\formacio\Documents\GitHub\.NET-course\Bloc C# y Java\Bloc exercici lletres\Bloc2- A1 CSharp y javascript\Bloc2- A1 CSharp y javascript\bin\Debug\netcoreapp3.0\Bloc2- A1 CSharp y javascript.runtimeconfig.json
+C:\Users\formacio\Documents\GitHub\.NET-course\Bloc C# y Java\Bloc exercici lletres\Bloc2- A1 CSharp y javascript\Bloc2- A1 CSharp y javascript\bin\Debug\netcoreapp3.0\Bloc2- A1 CSharp y javascript.runtimeconfig.dev.json
+C:\Users\formacio\Documents\GitHub\.NET-course\Bloc C# y Java\Bloc exercici lletres\Bloc2- A1 CSharp y javascript\Bloc2- A1 CSharp y javascript\bin\Debug\netcoreapp3.0\Bloc2- A1 CSharp y javascript.dll
+C:\Users\formacio\Documents\GitHub\.NET-course\Bloc C# y Java\Bloc exercici lletres\Bloc2- A1 CSharp y javascript\Bloc2- A1 CSharp y javascript\bin\Debug\netcoreapp3.0\Bloc2- A1 CSharp y javascript.pdb
+C:\Users\formacio\Documents\GitHub\.NET-course\Bloc C# y Java\Bloc exercici lletres\Bloc2- A1 CSharp y javascript\Bloc2- A1 CSharp y javascript\obj\Debug\netcoreapp3.0\Bloc2- A1 CSharp y javascript.csprojAssemblyReference.cache
+C:\Users\formacio\Documents\GitHub\.NET-course\Bloc C# y Java\Bloc exercici lletres\Bloc2- A1 CSharp y javascript\Bloc2- A1 CSharp y javascript\obj\Debug\netcoreapp3.0\Bloc2- A1 CSharp y javascript.AssemblyInfoInputs.cache
+C:\Users\formacio\Documents\GitHub\.NET-course\Bloc C# y Java\Bloc exercici lletres\Bloc2- A1 CSharp y javascript\Bloc2- A1 CSharp y javascript\obj\Debug\netcoreapp3.0\Bloc2- A1 CSharp y javascript.AssemblyInfo.cs
+C:\Users\formacio\Documents\GitHub\.NET-course\Bloc C# y Java\Bloc exercici lletres\Bloc2- A1 CSharp y javascript\Bloc2- A1 CSharp y javascript\obj\Debug\netcoreapp3.0\Bloc2- A1 CSharp y javascript.dll
+C:\Users\formacio\Documents\GitHub\.NET-course\Bloc C# y Java\Bloc exercici lletres\Bloc2- A1 CSharp y javascript\Bloc2- A1 CSharp y javascript\obj\Debug\netcoreapp3.0\Bloc2- A1 CSharp y javascript.pdb

@@ -1,0 +1,11 @@
+C:\Users\formacio\Desktop\Marc\Exercicis\.NET-course\Bloc C# y Java\Practica Troncal\Blo 5- Práctica Troncal A2\Blo 5- Práctica Troncal A2\obj\Debug\netcoreapp3.0\Blo 5- Práctica Troncal A2.csprojAssemblyReference.cache
+C:\Users\formacio\Desktop\Marc\Exercicis\.NET-course\Bloc C# y Java\Practica Troncal\Blo 5- Práctica Troncal A2\Blo 5- Práctica Troncal A2\obj\Debug\netcoreapp3.0\Blo 5- Práctica Troncal A2.AssemblyInfoInputs.cache
+C:\Users\formacio\Desktop\Marc\Exercicis\.NET-course\Bloc C# y Java\Practica Troncal\Blo 5- Práctica Troncal A2\Blo 5- Práctica Troncal A2\obj\Debug\netcoreapp3.0\Blo 5- Práctica Troncal A2.AssemblyInfo.cs
+C:\Users\formacio\Desktop\Marc\Exercicis\.NET-course\Bloc C# y Java\Practica Troncal\Blo 5- Práctica Troncal A2\Blo 5- Práctica Troncal A2\bin\Debug\netcoreapp3.0\Blo 5- Práctica Troncal A2.exe
+C:\Users\formacio\Desktop\Marc\Exercicis\.NET-course\Bloc C# y Java\Practica Troncal\Blo 5- Práctica Troncal A2\Blo 5- Práctica Troncal A2\bin\Debug\netcoreapp3.0\Blo 5- Práctica Troncal A2.deps.json
+C:\Users\formacio\Desktop\Marc\Exercicis\.NET-course\Bloc C# y Java\Practica Troncal\Blo 5- Práctica Troncal A2\Blo 5- Práctica Troncal A2\bin\Debug\netcoreapp3.0\Blo 5- Práctica Troncal A2.runtimeconfig.json
+C:\Users\formacio\Desktop\Marc\Exercicis\.NET-course\Bloc C# y Java\Practica Troncal\Blo 5- Práctica Troncal A2\Blo 5- Práctica Troncal A2\bin\Debug\netcoreapp3.0\Blo 5- Práctica Troncal A2.runtimeconfig.dev.json
+C:\Users\formacio\Desktop\Marc\Exercicis\.NET-course\Bloc C# y Java\Practica Troncal\Blo 5- Práctica Troncal A2\Blo 5- Práctica Troncal A2\bin\Debug\netcoreapp3.0\Blo 5- Práctica Troncal A2.dll
+C:\Users\formacio\Desktop\Marc\Exercicis\.NET-course\Bloc C# y Java\Practica Troncal\Blo 5- Práctica Troncal A2\Blo 5- Práctica Troncal A2\bin\Debug\netcoreapp3.0\Blo 5- Práctica Troncal A2.pdb
+C:\Users\formacio\Desktop\Marc\Exercicis\.NET-course\Bloc C# y Java\Practica Troncal\Blo 5- Práctica Troncal A2\Blo 5- Práctica Troncal A2\obj\Debug\netcoreapp3.0\Blo 5- Práctica Troncal A2.dll
+C:\Users\formacio\Desktop\Marc\Exercicis\.NET-course\Bloc C# y Java\Practica Troncal\Blo 5- Práctica Troncal A2\Blo 5- Práctica Troncal A2\obj\Debug\netcoreapp3.0\Blo 5- Práctica Troncal A2.pdb

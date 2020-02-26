@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.0": {
+      "Blo 5- Práctica Troncal A2/1.0.0": {
+        "runtime": {
+          "Blo 5- Práctica Troncal A2.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Blo 5- Práctica Troncal A2/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

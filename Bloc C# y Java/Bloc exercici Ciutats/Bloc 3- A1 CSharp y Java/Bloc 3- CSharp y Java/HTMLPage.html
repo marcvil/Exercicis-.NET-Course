@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>
+        Bloc 2 - Actividad 3 Ciudades
+    </title>
+</head>
+<body>
+    <input type="text" name="text" id="inputText" />
+    <button id="buttonAdd"  onclick="AñadeCiudadalArray();"> Añade Ciudad</button>
+    <button id="buttonShow" onclick="MuestraCiudades();"> Muestra Ciudades</button>
+    <p id="myText"></p>
+
+    <script>
+        var ciudadesArray = [];
+
+        function AñadeCiudadalArray() {
+            if (ciudadesArray.length == 6) {
+            document.getElementById("inputText").disabled = true;
+            document.getElementById("buttonAdd").disabled = true;
+        }
+            var inputText = document.getElementById("inputText").value;
+
+            ciudadesArray.push(inputText);
+            document.getElementById("inputText").value = "";
+        }
+
+        function MuestraCiudades() {
+            var showText = "";
+            for (i = 0; i < ciudadesArray.length; i++) {
+                showText = showText + ciudadesArray[i] + "<br/>";
+            }
+
+            document.getElementById("myText").innerHTML = showText;
+        }
+
+    </script>
+</body>
+</html>

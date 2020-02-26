@@ -1,0 +1,11 @@
+C:\Users\formacio\Desktop\Marc\Exercicis\.NET-course\Bloc C# y Java\Bloc exercici Restaurant\Bloc 4- A2 Restaurant\Bloc 4- A2 Restaurant\bin\Debug\netcoreapp3.0\Bloc 4- A2 Restaurant.exe
+C:\Users\formacio\Desktop\Marc\Exercicis\.NET-course\Bloc C# y Java\Bloc exercici Restaurant\Bloc 4- A2 Restaurant\Bloc 4- A2 Restaurant\bin\Debug\netcoreapp3.0\Bloc 4- A2 Restaurant.deps.json
+C:\Users\formacio\Desktop\Marc\Exercicis\.NET-course\Bloc C# y Java\Bloc exercici Restaurant\Bloc 4- A2 Restaurant\Bloc 4- A2 Restaurant\bin\Debug\netcoreapp3.0\Bloc 4- A2 Restaurant.runtimeconfig.json
+C:\Users\formacio\Desktop\Marc\Exercicis\.NET-course\Bloc C# y Java\Bloc exercici Restaurant\Bloc 4- A2 Restaurant\Bloc 4- A2 Restaurant\bin\Debug\netcoreapp3.0\Bloc 4- A2 Restaurant.runtimeconfig.dev.json
+C:\Users\formacio\Desktop\Marc\Exercicis\.NET-course\Bloc C# y Java\Bloc exercici Restaurant\Bloc 4- A2 Restaurant\Bloc 4- A2 Restaurant\bin\Debug\netcoreapp3.0\Bloc 4- A2 Restaurant.dll
+C:\Users\formacio\Desktop\Marc\Exercicis\.NET-course\Bloc C# y Java\Bloc exercici Restaurant\Bloc 4- A2 Restaurant\Bloc 4- A2 Restaurant\bin\Debug\netcoreapp3.0\Bloc 4- A2 Restaurant.pdb
+C:\Users\formacio\Desktop\Marc\Exercicis\.NET-course\Bloc C# y Java\Bloc exercici Restaurant\Bloc 4- A2 Restaurant\Bloc 4- A2 Restaurant\obj\Debug\netcoreapp3.0\Bloc 4- A2 Restaurant.csprojAssemblyReference.cache
+C:\Users\formacio\Desktop\Marc\Exercicis\.NET-course\Bloc C# y Java\Bloc exercici Restaurant\Bloc 4- A2 Restaurant\Bloc 4- A2 Restaurant\obj\Debug\netcoreapp3.0\Bloc 4- A2 Restaurant.AssemblyInfoInputs.cache
+C:\Users\formacio\Desktop\Marc\Exercicis\.NET-course\Bloc C# y Java\Bloc exercici Restaurant\Bloc 4- A2 Restaurant\Bloc 4- A2 Restaurant\obj\Debug\netcoreapp3.0\Bloc 4- A2 Restaurant.AssemblyInfo.cs
+C:\Users\formacio\Desktop\Marc\Exercicis\.NET-course\Bloc C# y Java\Bloc exercici Restaurant\Bloc 4- A2 Restaurant\Bloc 4- A2 Restaurant\obj\Debug\netcoreapp3.0\Bloc 4- A2 Restaurant.dll
+C:\Users\formacio\Desktop\Marc\Exercicis\.NET-course\Bloc C# y Java\Bloc exercici Restaurant\Bloc 4- A2 Restaurant\Bloc 4- A2 Restaurant\obj\Debug\netcoreapp3.0\Bloc 4- A2 Restaurant.pdb

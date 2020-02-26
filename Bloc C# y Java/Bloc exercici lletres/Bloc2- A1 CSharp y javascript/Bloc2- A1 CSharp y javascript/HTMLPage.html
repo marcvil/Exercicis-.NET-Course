@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<body>
+
+    <h3>This application will split your name by it's letters.</h3>
+
+    <p>Type your name and then click the button "Try it".</p>
+
+    <input type="text" id="myText" value="Some text...">
+
+    <button onclick="GetTextandSeparateByletters()">Try it</button>
+
+    <p id="username"></p>
+
+    <script>
+        function GetTextandSeparateByletters() {
+            var x = document.getElementById("myText").value;
+            for (i = 0; i <= x.length; i++)
+            {
+                if (x.charAt(i) != null)
+                {
+                    console.log(x.charAt(i));
+                    console.log(" ");
+                    document.write(x.charAt(i) + "<br>");
+                  
+                }
+                
+                else
+                {
+                    return;
+                }
+            }
+           
+                
+            
+        }
+        
+    </script>
+
+</body>
+</html>

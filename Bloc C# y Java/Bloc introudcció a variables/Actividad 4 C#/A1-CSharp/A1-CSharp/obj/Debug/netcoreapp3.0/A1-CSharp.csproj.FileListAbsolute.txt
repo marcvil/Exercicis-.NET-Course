@@ -1,0 +1,11 @@
+C:\Users\formacio\Documents\GitHub\.NET-course\Actividad 4 C#\A1-CSharp\A1-CSharp\bin\Debug\netcoreapp3.0\A1-CSharp.exe
+C:\Users\formacio\Documents\GitHub\.NET-course\Actividad 4 C#\A1-CSharp\A1-CSharp\bin\Debug\netcoreapp3.0\A1-CSharp.deps.json
+C:\Users\formacio\Documents\GitHub\.NET-course\Actividad 4 C#\A1-CSharp\A1-CSharp\bin\Debug\netcoreapp3.0\A1-CSharp.runtimeconfig.json
+C:\Users\formacio\Documents\GitHub\.NET-course\Actividad 4 C#\A1-CSharp\A1-CSharp\bin\Debug\netcoreapp3.0\A1-CSharp.runtimeconfig.dev.json
+C:\Users\formacio\Documents\GitHub\.NET-course\Actividad 4 C#\A1-CSharp\A1-CSharp\bin\Debug\netcoreapp3.0\A1-CSharp.dll
+C:\Users\formacio\Documents\GitHub\.NET-course\Actividad 4 C#\A1-CSharp\A1-CSharp\bin\Debug\netcoreapp3.0\A1-CSharp.pdb
+C:\Users\formacio\Documents\GitHub\.NET-course\Actividad 4 C#\A1-CSharp\A1-CSharp\obj\Debug\netcoreapp3.0\A1-CSharp.csprojAssemblyReference.cache
+C:\Users\formacio\Documents\GitHub\.NET-course\Actividad 4 C#\A1-CSharp\A1-CSharp\obj\Debug\netcoreapp3.0\A1-CSharp.AssemblyInfoInputs.cache
+C:\Users\formacio\Documents\GitHub\.NET-course\Actividad 4 C#\A1-CSharp\A1-CSharp\obj\Debug\netcoreapp3.0\A1-CSharp.AssemblyInfo.cs
+C:\Users\formacio\Documents\GitHub\.NET-course\Actividad 4 C#\A1-CSharp\A1-CSharp\obj\Debug\netcoreapp3.0\A1-CSharp.dll
+C:\Users\formacio\Documents\GitHub\.NET-course\Actividad 4 C#\A1-CSharp\A1-CSharp\obj\Debug\netcoreapp3.0\A1-CSharp.pdb

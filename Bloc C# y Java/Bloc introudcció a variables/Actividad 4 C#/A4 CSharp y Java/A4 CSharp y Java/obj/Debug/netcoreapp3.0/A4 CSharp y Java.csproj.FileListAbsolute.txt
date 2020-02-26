@@ -1,0 +1,10 @@
+C:\Users\formacio\Documents\GitHub\.NET-course\Actividad 4 C#\A4 CSharp y Java\A4 CSharp y Java\bin\Debug\netcoreapp3.0\A4 CSharp y Java.exe
+C:\Users\formacio\Documents\GitHub\.NET-course\Actividad 4 C#\A4 CSharp y Java\A4 CSharp y Java\bin\Debug\netcoreapp3.0\A4 CSharp y Java.deps.json
+C:\Users\formacio\Documents\GitHub\.NET-course\Actividad 4 C#\A4 CSharp y Java\A4 CSharp y Java\bin\Debug\netcoreapp3.0\A4 CSharp y Java.runtimeconfig.json
+C:\Users\formacio\Documents\GitHub\.NET-course\Actividad 4 C#\A4 CSharp y Java\A4 CSharp y Java\bin\Debug\netcoreapp3.0\A4 CSharp y Java.runtimeconfig.dev.json
+C:\Users\formacio\Documents\GitHub\.NET-course\Actividad 4 C#\A4 CSharp y Java\A4 CSharp y Java\bin\Debug\netcoreapp3.0\A4 CSharp y Java.dll
+C:\Users\formacio\Documents\GitHub\.NET-course\Actividad 4 C#\A4 CSharp y Java\A4 CSharp y Java\bin\Debug\netcoreapp3.0\A4 CSharp y Java.pdb
+C:\Users\formacio\Documents\GitHub\.NET-course\Actividad 4 C#\A4 CSharp y Java\A4 CSharp y Java\obj\Debug\netcoreapp3.0\A4 CSharp y Java.AssemblyInfoInputs.cache
+C:\Users\formacio\Documents\GitHub\.NET-course\Actividad 4 C#\A4 CSharp y Java\A4 CSharp y Java\obj\Debug\netcoreapp3.0\A4 CSharp y Java.AssemblyInfo.cs
+C:\Users\formacio\Documents\GitHub\.NET-course\Actividad 4 C#\A4 CSharp y Java\A4 CSharp y Java\obj\Debug\netcoreapp3.0\A4 CSharp y Java.dll
+C:\Users\formacio\Documents\GitHub\.NET-course\Actividad 4 C#\A4 CSharp y Java\A4 CSharp y Java\obj\Debug\netcoreapp3.0\A4 CSharp y Java.pdb

@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>
+        Bloc 2 - Actividad 2
+    </title>
+</head>
+<body>
+    <h3>This application will split your name by it's letters.</h3>
+
+    <p>Type your name and then click the button "Try it".</p>
+
+    <input type="text" id="myText" value="Some text...">
+
+    <button onclick="GetTextandSeparateByletters()">Try it</button>
+
+    <p id="username"></p>
+
+    <script>
+        function GetTextandSeparateByletters() {
+            var x = document.getElementById("myText").value;
+
+            
+            var vocals = ["a", "e", "i", "o", "u"];
+
+            //Convertir a lista 
+            var set = new Set(x);
+            document.write(set.size);
+           
+            /*
+            for (var i = 0; i <= x.length; i++) {
+                
+                    for (var j = 0; j <= vocals.length; j++) {
+                        if (set.charAt[i] == vocals[j])  //Si es vocal...?
+                        {
+                            console.log(set.charAt[i]);
+                            console.log(" ");
+                            document.write(set.charAt[i] + " es una vocal." + "<br>");
+                            break;
+                        }
+                        if (set.charAt[i] != vocals[j] && j >= vocals.length)  //Si no es vocal...?
+                        {
+                            console.log(set.charAt[i]);
+                            console.log(" ");
+                            document.write(set.charAt[i] + " no es una vocal." + "<br>");
+                            break;
+                        }
+                    }
+                
+            }*/
+        }
+    </script>
+</body>
+</html>

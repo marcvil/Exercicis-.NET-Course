@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.0": {
+      "Bloc2- A1 CSharp y javascript/1.0.0": {
+        "runtime": {
+          "Bloc2- A1 CSharp y javascript.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Bloc2- A1 CSharp y javascript/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

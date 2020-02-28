@@ -5,7 +5,7 @@ namespace A3_DbContext
     public class Exam : Entity
     {
         public double FinalMark { get; set; }
-        public DateTime ExamDate { get; set; }
+        //public DateTime ExamDate { get; set; }
 
         public Student Student { get; set; }
 
@@ -15,10 +15,11 @@ namespace A3_DbContext
         {
 
         }
-        public Exam(double finalMark)
+        public Exam(double finalMark, Student student)
         {
 
             this.FinalMark = finalMark;
+            this.Student = student;
         }
 
 
@@ -39,7 +40,7 @@ namespace A3_DbContext
             #region format
 
             double doublevar;
-            bool conversionvalid = double.TryParse(Console.ReadLine(), out doublevar);
+            bool conversionvalid = double.TryParse(finalmark, out doublevar);
             if (!conversionvalid)
             {
                 tempfinalMark.ValidationSuccesful = false;
@@ -54,37 +55,42 @@ namespace A3_DbContext
 
             return tempfinalMark;
         }
-
-        public static ValidationResult<DateTime> ValidateDateTime(int year, int month, int day)
+        /*
+        public static ValidationResult<DateTime> ValidateDateTime(DateTime dateTime)
         {
             ValidationResult<DateTime> tempDateTime = new ValidationResult<DateTime>();
 
             tempDateTime.ValidationSuccesful = true;
 
-            #region Check format  
-            // We check if they added another number(missclick), which will result in a year larger than 10000
-            if (year > 10000)
-            {
-                tempDateTime.ValidationSuccesful = false;
-            }
-            if (month! >= 0 || month! <= 12)
-            {
-                tempDateTime.ValidationSuccesful = false;
-            }
-            if (day! >= 0 || day! <= 31)
-            {
-                tempDateTime.ValidationSuccesful = false;
-            }
-            #endregion
-
             if (tempDateTime.ValidationSuccesful == true)
             {
-                tempDateTime.ValidatedResult = new DateTime(year, month, day);
+                tempDateTime.ValidatedResult = dateTime;
             }
 
             return tempDateTime;
         }
+        */
+        public static ValidationResult<Student> ValidateStudent(string dniNumber)
+        {
+            ValidationResult<Student> tempIdStudent = new ValidationResult<Student>();
 
+            tempIdStudent.ValidationSuccesful = true;
+
+            #region Check null or empty
+            if (string.IsNullOrEmpty(dniNumber))
+            {
+                tempIdStudent.ValidationSuccesful = false;
+                tempIdStudent.Messages.Add("dninumber null or empty.");
+            }
+            #endregion
+
+            if (tempIdStudent.ValidationSuccesful == true)
+            {
+                tempIdStudent.ValidatedResult = DbContext.studentByDni[dniNumber];
+            }
+
+            return tempIdStudent;
+        }
 
         public bool Save()
         {
@@ -94,9 +100,15 @@ namespace A3_DbContext
             {
                 return false;
             }
-
-            var datevalidation = ValidateDateTime(this.ExamDate.Year, this.ExamDate.Month, this.ExamDate.Day);
+            /*
+            var datevalidation = ValidateDateTime(this.ExamDate);
             if (datevalidation.ValidationSuccesful == false)
+            {
+                return false;
+            }
+            */
+            var studentValidation = ValidateStudent(this.Student.Dni);
+            if (studentValidation.ValidationSuccesful == false)
             {
                 return false;
             }

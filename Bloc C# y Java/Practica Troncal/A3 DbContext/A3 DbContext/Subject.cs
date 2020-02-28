@@ -7,13 +7,13 @@ namespace A3_DbContext
     public class Subject : Entity
     {
         public string SubjectName { get; set; }
-        public int SubjectCode { get; set; }
+        public string SubjectCode { get; set; }
 
         public Subject()
         {
 
         }
-        public Subject(int SubjectCode, string subjectName)
+        public Subject(string SubjectCode, string subjectName)
         {
             this.SubjectCode = SubjectCode;
             this.SubjectName = subjectName;
@@ -26,7 +26,7 @@ namespace A3_DbContext
             ValidationResult<string> tempsubjectName = new ValidationResult<string>();
 
             tempsubjectName.ValidationSuccesful = true;
-
+            Console.WriteLine(subjectname);
             #region Check null or empty
             if (string.IsNullOrEmpty(subjectname))
             {
@@ -43,19 +43,27 @@ namespace A3_DbContext
             return tempsubjectName;
         }
 
-        public static ValidationResult<int> ValidateIdSubject(int subjectCode)
+        public static ValidationResult<int> ValidateIdSubject(string subjectCode)
         {
             ValidationResult<int> tempIdSubject = new ValidationResult<int>();
 
             tempIdSubject.ValidationSuccesful = true;
 
-            #region Check format
-            // Ya se checkea el Input en los helper methods de Input
-            #endregion
+            int subjectCodeNumber;
+            bool parsedConversion = Int32.TryParse(subjectCode, out subjectCodeNumber);
+
+            if (!parsedConversion)
+            {
+                
+                tempIdSubject.ValidationSuccesful = false;
+                tempIdSubject.Messages.Add("SubjectCode conversion failed");
+            }
+
+
 
             if (tempIdSubject.ValidationSuccesful == true)
             {
-                tempIdSubject.ValidatedResult = subjectCode;
+                tempIdSubject.ValidatedResult = subjectCodeNumber;
             }
 
             return tempIdSubject;
@@ -68,12 +76,14 @@ namespace A3_DbContext
             var stringvalidation = ValidateSubjectName(this.SubjectName);
             if (stringvalidation.ValidationSuccesful == false)
             {
+               
                 return false;
             }
 
             var intvalidation = ValidateIdSubject(this.SubjectCode);
             if (intvalidation.ValidationSuccesful == false)
             {
+               
                 return false;
             }
 
@@ -85,7 +95,7 @@ namespace A3_DbContext
             }
             else
             {
-                DbContext.CreateSubject(this);
+                DbContext.UpdateSubject(this);
             }
             return true;
         }

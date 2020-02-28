@@ -22,17 +22,15 @@ namespace A3_DbContext
                 }
                 else if (option == 2)
                 {
-                    Console.Clear();
+                    
                     ShowSubjectsManagementMenu();
-                    Console.Clear();
-                    ShowMainMenu();
+                    
                 }
                 else if (option == 3)
                 {
-                    Console.Clear();
+                   
                     ShowExamManagementMenu();
-                    Console.Clear();
-                    ShowMainMenu();
+                    
 
                 }
 
@@ -69,8 +67,7 @@ namespace A3_DbContext
                 Console.WriteLine("2. Mostrar alumno.");
                 Console.WriteLine("3. Modificar alumno.");
                 Console.WriteLine("4. Borrar alumno.");
-                Console.WriteLine("5. Muestra todos los alumnos.");
-                Console.WriteLine("6. Volver al menu.");
+                Console.WriteLine("5. Volver al menu.");
 
                 option = Input.InputInt();
                 if (option == 1)
@@ -83,6 +80,11 @@ namespace A3_DbContext
 
                     while (!valResultDni.ValidationSuccesful)
                     {
+                        foreach (var msg in valResultDni.Messages)
+                        {
+                            Console.WriteLine(msg);
+                        }
+
                         inputDni = Console.ReadLine();
                         Student.ValidateDni(inputDni, true);
                     }
@@ -96,6 +98,10 @@ namespace A3_DbContext
 
                     while (!valResultName.ValidationSuccesful)
                     {
+                        foreach (var msg in valResultName.Messages)
+                        {
+                            Console.WriteLine(msg);
+                        }
                         inputName = Console.ReadLine();
                         Student.ValidateName(inputName);
                     }
@@ -109,6 +115,10 @@ namespace A3_DbContext
 
                     while (!valResultMail.ValidationSuccesful)
                     {
+                        foreach (var msg in valResultMail.Messages)
+                        {
+                            Console.WriteLine(msg);
+                        }
                         inputMail = Console.ReadLine();
                         Student.ValidateMail(inputMail);
                     }
@@ -123,6 +133,12 @@ namespace A3_DbContext
 
                     while (!valResultLocker.ValidationSuccesful)
                     {
+                       
+                      foreach (var msg in valResultLocker.Messages)
+                      {
+                         Console.WriteLine(msg);
+                      }
+                      
                         inputLockerKey = Console.ReadLine();
                         Student.ValidateLockerkeyNumber(inputLockerKey);
                     }
@@ -168,10 +184,7 @@ namespace A3_DbContext
                     }
 
                 }
-                else if (option == 5)
-                {
-
-                }
+               
                 else
                 {
                     looping = false;
@@ -191,13 +204,62 @@ namespace A3_DbContext
                 Console.WriteLine("2. Mostrar Asignatura.");
                 Console.WriteLine("3. Modificar Asignatura.");
                 Console.WriteLine("4. Borrar Asignatura.");
-                Console.WriteLine("5. Muestra todas las Asignatura de un alumno.");
-                Console.WriteLine("6. Volver al Menú principal.");
+                Console.WriteLine("5. Volver al Menú principal.");
+                option = Input.InputInt();
 
                 if (option == 1)
                 {
                     Console.Clear();
-                    //TODO CreateAsignatura()
+
+                    #region Input Subject Name
+                    Console.WriteLine("Escribe el nombre de la asignatura");
+                    string inputSubjectName = Console.ReadLine();
+
+                    ValidationResult<string> valResultSubjectname = Subject.ValidateSubjectName(inputSubjectName);
+
+                    while (!valResultSubjectname.ValidationSuccesful)
+                    {
+                        foreach (var msg in valResultSubjectname.Messages)
+                        {
+                            Console.WriteLine(msg);
+                        }
+                        inputSubjectName = Console.ReadLine();
+                        Subject.ValidateSubjectName(inputSubjectName);
+                    }
+                    #endregion
+
+                    #region Input SubjectCode
+                    Console.WriteLine("Escribe el codigo numerico de la asignatura");
+                    string inputCodeNumber = Console.ReadLine();
+
+                    ValidationResult<int> valResultSubjectCode = Subject.ValidateIdSubject(inputCodeNumber);
+
+                    while (!valResultSubjectCode.ValidationSuccesful)
+                    {
+                        foreach (var msg in valResultSubjectCode.Messages)
+                        {
+                            Console.WriteLine(msg);
+                        }
+                        inputCodeNumber = Console.ReadLine();
+                        Subject.ValidateIdSubject(inputCodeNumber);
+                    }
+                    #endregion
+
+                    if (valResultSubjectname.ValidationSuccesful && valResultSubjectCode.ValidationSuccesful)
+                    {
+                       var subject = new Subject(valResultSubjectCode.ValidatedResult.ToString(), valResultSubjectname.ValidatedResult);
+
+                        subject.Save();
+
+                        if (subject.Save() == true)
+                        {
+                            Console.WriteLine("Guardado!");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Asgnatrua no guardada debido a errores.");
+                        }
+                    }
                 }
                 else if (option == 2)
                 {
@@ -212,10 +274,7 @@ namespace A3_DbContext
                 {
                     //TODO DeleteAsignatura()
                 }
-                else if (option == 5)
-                {
-
-                }
+               
                 else
                 {
                     looping = false;
@@ -235,13 +294,60 @@ namespace A3_DbContext
                 Console.WriteLine("2. Mostrar Examen.");
                 Console.WriteLine("3. Modificar Examen.");
                 Console.WriteLine("4. Borrar Examen.");
-                Console.WriteLine("5. Muestra todos los Examenes de un alumno.");
-                Console.WriteLine("6. Volver al Menú principal.");
-
+               
+                Console.WriteLine("5. Volver al Menú principal.");
+                option = Input.InputInt();
                 if (option == 1)
                 {
-                    Console.Clear();
-                    //TODO CreateExam()
+                    #region Input FInalMArk
+                    Console.WriteLine("Escribe la nota del examen");
+                    string inputFinalmark = Console.ReadLine();
+
+                    ValidationResult<double> valResultFinalMark = Exam.ValidateFinalMark(inputFinalmark);
+
+                    while (!valResultFinalMark.ValidationSuccesful)
+                    {
+                        foreach (var msg in valResultFinalMark.Messages)
+                        {
+                            Console.WriteLine(msg);
+                        }
+                        inputFinalmark = Console.ReadLine();
+                        Exam.ValidateFinalMark(inputFinalmark);
+                    }
+                    #endregion
+
+                    #region Input StudentDNi
+                    Console.WriteLine("Escribe el dni del alumno que ha realizado ele xamen");
+                    string inputStudentDni = Console.ReadLine();
+
+                    ValidationResult<Student> valResultStudent = Exam.ValidateStudent(inputStudentDni);
+
+                    while (!valResultStudent.ValidationSuccesful)
+                    {
+                        foreach (var msg in valResultStudent.Messages)
+                        {
+                            Console.WriteLine(msg);
+                        }
+                        inputStudentDni = Console.ReadLine();
+                        Exam.ValidateStudent(inputStudentDni);
+                    }
+                    #endregion
+
+                    if (valResultStudent.ValidationSuccesful && valResultFinalMark.ValidationSuccesful)
+                    {
+                        var exam = new Exam(valResultFinalMark.ValidatedResult, valResultStudent.ValidatedResult);
+
+                        exam.Save();
+
+                        if (exam.Save() == true)
+                        {
+                            Console.WriteLine("Guardado!");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Asgnatrua no guardada debido a errores.");
+                        }
+                    }
                 }
                 else if (option == 2)
                 {
@@ -255,10 +361,7 @@ namespace A3_DbContext
                 {
                     //TODO DeleteExam()
                 }
-                else if (option == 5)
-                {
-
-                }
+                
                 else
                 {
                     looping = false;

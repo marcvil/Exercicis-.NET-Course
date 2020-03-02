@@ -17,6 +17,11 @@ namespace A3_DbContext
 
                 if (option == 1)
                 {
+                    foreach (string s in DbContext.studentByDni.Keys)
+                    {
+                        Console.WriteLine(s);
+                        Console.WriteLine("Hola");
+                    }
                     ShowStudentsManagementMenu();
 
                 }
@@ -24,6 +29,7 @@ namespace A3_DbContext
                 {
                     
                     ShowSubjectsManagementMenu();
+                    
                     
                 }
                 else if (option == 3)
@@ -86,7 +92,7 @@ namespace A3_DbContext
                         }
 
                         inputDni = Console.ReadLine();
-                        Student.ValidateDni(inputDni, true);
+                        valResultDni=Student.ValidateDni(inputDni, true);
                     }
                     #endregion
 
@@ -120,7 +126,7 @@ namespace A3_DbContext
                             Console.WriteLine(msg);
                         }
                         inputMail = Console.ReadLine();
-                        Student.ValidateMail(inputMail);
+                        valResultMail=Student.ValidateMail(inputMail);
                     }
                     #endregion
 
@@ -133,14 +139,14 @@ namespace A3_DbContext
 
                     while (!valResultLocker.ValidationSuccesful)
                     {
-                       
-                      foreach (var msg in valResultLocker.Messages)
-                      {
-                         Console.WriteLine(msg);
-                      }
-                      
+
+                        foreach (var msg in valResultLocker.Messages)
+                        {
+                            Console.WriteLine(msg);
+                        }
+
                         inputLockerKey = Console.ReadLine();
-                        Student.ValidateLockerkeyNumber(inputLockerKey);
+                        valResultLocker=Student.ValidateLockerkeyNumber(inputLockerKey);
                     }
                     #endregion
 
@@ -166,7 +172,7 @@ namespace A3_DbContext
                 }
                 else if (option == 3)
                 {
-                   
+
                 }
                 else if (option == 4)
                 {
@@ -184,13 +190,21 @@ namespace A3_DbContext
                     }
 
                 }
-               
+                else if (option == 5)
+                {
+                    looping = false;
+
+                    break;
+                }
                 else
                 {
                     looping = false;
+                    break;
+                    
                 }
 
             }
+            
         }
         static void ShowSubjectsManagementMenu()
         {
@@ -224,7 +238,7 @@ namespace A3_DbContext
                             Console.WriteLine(msg);
                         }
                         inputSubjectName = Console.ReadLine();
-                        Subject.ValidateSubjectName(inputSubjectName);
+                        valResultSubjectname=Subject.ValidateSubjectName(inputSubjectName);
                     }
                     #endregion
 
@@ -240,8 +254,10 @@ namespace A3_DbContext
                         {
                             Console.WriteLine(msg);
                         }
+                        Console.WriteLine("Entra de nuevo un valor numérico");
                         inputCodeNumber = Console.ReadLine();
-                        Subject.ValidateIdSubject(inputCodeNumber);
+                        valResultSubjectCode=  Subject.ValidateIdSubject(inputCodeNumber);
+                        
                     }
                     #endregion
 
@@ -257,14 +273,25 @@ namespace A3_DbContext
                         }
                         else
                         {
-                            Console.WriteLine("Asgnatrua no guardada debido a errores.");
+                            Console.WriteLine("Asignatrua no guardada debido a errores.");
                         }
                     }
                 }
                 else if (option == 2)
                 {
                     Console.Clear();
-                    //TODO ReadAsignatura()
+                    Console.WriteLine("Escribe el nombre de la asignatura que quieras buscar");
+                    string subject = Console.ReadLine();
+
+                    foreach( Subject subj in DbContext.subjectList.Values)
+                    {
+                        if(subject == subj.SubjectName)
+                        {
+                            Console.WriteLine(subj.SubjectName +"\n" + 
+                                subj.SubjectCode + "\n"
+                                + subj.Id);
+                        }
+                    }
                 }
                 else if (option == 3)
                 {
@@ -312,7 +339,7 @@ namespace A3_DbContext
                             Console.WriteLine(msg);
                         }
                         inputFinalmark = Console.ReadLine();
-                        Exam.ValidateFinalMark(inputFinalmark);
+                        valResultFinalMark= Exam.ValidateFinalMark(inputFinalmark);
                     }
                     #endregion
 
@@ -329,7 +356,7 @@ namespace A3_DbContext
                             Console.WriteLine(msg);
                         }
                         inputStudentDni = Console.ReadLine();
-                        Exam.ValidateStudent(inputStudentDni);
+                        valResultStudent=Exam.ValidateStudent(inputStudentDni);
                     }
                     #endregion
 
@@ -351,7 +378,19 @@ namespace A3_DbContext
                 }
                 else if (option == 2)
                 {
-                    //TODO ReadExam()
+                    Console.Clear();
+                    Console.WriteLine("Escribe el nombre del estudiante que quieras buscar");
+                    string studentName = Console.ReadLine();
+                    Console.WriteLine("Escribe el nombre de la asignatura que quieras buscar");
+                    string subjectname = Console.ReadLine();
+
+                    foreach (Exam ex in DbContext.examList.Values)
+                    {
+                        if (studentName == ex.Student.Name && subjectname == ex.Subject.SubjectName)
+                        {
+                            Console.WriteLine("La nota es " + ex.FinalMark + " con id " + ex.Id);
+                        }
+                    }
                 }
                 else if (option == 3)
                 {

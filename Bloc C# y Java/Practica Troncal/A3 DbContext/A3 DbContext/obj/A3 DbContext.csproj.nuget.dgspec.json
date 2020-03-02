@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\formacio\\Desktop\\Marc\\Exercicis\\Exercicis-.NET-Course\\Bloc C# y Java\\Practica Troncal\\A3 DbContext\\A3 DbContext\\A3 DbContext.csproj": {}
+    "C:\\Users\\formacio\\Desktop\\Marc Exercicis\\Exercicis-.NET-Course\\Bloc C# y Java\\Practica Troncal\\A3 DbContext\\A3 DbContext\\A3 DbContext.csproj": {}
   },
   "projects": {
-    "C:\\Users\\formacio\\Desktop\\Marc\\Exercicis\\Exercicis-.NET-Course\\Bloc C# y Java\\Practica Troncal\\A3 DbContext\\A3 DbContext\\A3 DbContext.csproj": {
+    "C:\\Users\\formacio\\Desktop\\Marc Exercicis\\Exercicis-.NET-Course\\Bloc C# y Java\\Practica Troncal\\A3 DbContext\\A3 DbContext\\A3 DbContext.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\formacio\\Desktop\\Marc\\Exercicis\\Exercicis-.NET-Course\\Bloc C# y Java\\Practica Troncal\\A3 DbContext\\A3 DbContext\\A3 DbContext.csproj",
+        "projectUniqueName": "C:\\Users\\formacio\\Desktop\\Marc Exercicis\\Exercicis-.NET-Course\\Bloc C# y Java\\Practica Troncal\\A3 DbContext\\A3 DbContext\\A3 DbContext.csproj",
         "projectName": "A3 DbContext",
-        "projectPath": "C:\\Users\\formacio\\Desktop\\Marc\\Exercicis\\Exercicis-.NET-Course\\Bloc C# y Java\\Practica Troncal\\A3 DbContext\\A3 DbContext\\A3 DbContext.csproj",
+        "projectPath": "C:\\Users\\formacio\\Desktop\\Marc Exercicis\\Exercicis-.NET-Course\\Bloc C# y Java\\Practica Troncal\\A3 DbContext\\A3 DbContext\\A3 DbContext.csproj",
         "packagesPath": "C:\\Users\\formacio\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\formacio\\Desktop\\Marc\\Exercicis\\Exercicis-.NET-Course\\Bloc C# y Java\\Practica Troncal\\A3 DbContext\\A3 DbContext\\obj\\",
+        "outputPath": "C:\\Users\\formacio\\Desktop\\Marc Exercicis\\Exercicis-.NET-Course\\Bloc C# y Java\\Practica Troncal\\A3 DbContext\\A3 DbContext\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\formacio\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -47,12 +47,30 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.0.1, 3.0.1]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[3.0.2, 3.0.2]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[3.0.0, 3.0.0]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[3.0.0, 3.0.0]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

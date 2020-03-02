@@ -4,7 +4,6 @@ using System.Linq;
 
 namespace A3_DbContext
 {
-
     public class Student : User
     {
         public int LockerKeyNumber { get; set; }
@@ -103,13 +102,14 @@ namespace A3_DbContext
 
                 return false;
             }
-
+            
             var dniValidation = ValidateDni(this.Dni, true);
             if (dniValidation.ValidationSuccesful == false)
             {
-
+                
                 return false;
             }
+            
 
             var nameValidation = ValidateName(this.Name);
             if (nameValidation.ValidationSuccesful == false)
@@ -137,4 +137,3 @@ namespace A3_DbContext
         }
     }
 }
-

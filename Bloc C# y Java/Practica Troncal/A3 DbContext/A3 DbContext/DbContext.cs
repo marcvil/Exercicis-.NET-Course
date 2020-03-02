@@ -131,10 +131,7 @@ namespace A3_DbContext
         }
         public void ReadExam()
         {
-            // Solo tengo atributos finalMark y ExamDate, ninguno de ellos seria llave primaria en la base de datos para identificarlo inequívocamente
-            // Puedo añadir variables de subject y student a Exam, aunque creo que una vez hechos los repositories podremos relacionarlo sin
-            //hacer cluster de variables a lo loco
-            // return examList.Values.FirstOrDefault(x => x.Name == subjectName);
+            
         }
         public static bool UpdateExam(Exam exam)
         {

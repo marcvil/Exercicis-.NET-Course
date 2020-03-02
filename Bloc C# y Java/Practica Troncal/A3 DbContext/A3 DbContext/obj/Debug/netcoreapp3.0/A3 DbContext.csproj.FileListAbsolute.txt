@@ -20,3 +20,14 @@ C:\Users\formacio\Desktop\Marc\Exercicis\Exercicis-.NET-Course\Bloc C# y Java\Pr
 C:\Users\formacio\Desktop\Marc\Exercicis\Exercicis-.NET-Course\Bloc C# y Java\Practica Troncal\A3 DbContext\A3 DbContext\obj\Debug\netcoreapp3.0\A3 DbContext.AssemblyInfo.cs
 C:\Users\formacio\Desktop\Marc\Exercicis\Exercicis-.NET-Course\Bloc C# y Java\Practica Troncal\A3 DbContext\A3 DbContext\obj\Debug\netcoreapp3.0\A3 DbContext.dll
 C:\Users\formacio\Desktop\Marc\Exercicis\Exercicis-.NET-Course\Bloc C# y Java\Practica Troncal\A3 DbContext\A3 DbContext\obj\Debug\netcoreapp3.0\A3 DbContext.pdb
+C:\Users\formacio\Desktop\Marc Exercicis\Exercicis-.NET-Course\Bloc C# y Java\Practica Troncal\A3 DbContext\A3 DbContext\bin\Debug\netcoreapp3.0\A3 DbContext.exe
+C:\Users\formacio\Desktop\Marc Exercicis\Exercicis-.NET-Course\Bloc C# y Java\Practica Troncal\A3 DbContext\A3 DbContext\bin\Debug\netcoreapp3.0\A3 DbContext.deps.json
+C:\Users\formacio\Desktop\Marc Exercicis\Exercicis-.NET-Course\Bloc C# y Java\Practica Troncal\A3 DbContext\A3 DbContext\bin\Debug\netcoreapp3.0\A3 DbContext.runtimeconfig.json
+C:\Users\formacio\Desktop\Marc Exercicis\Exercicis-.NET-Course\Bloc C# y Java\Practica Troncal\A3 DbContext\A3 DbContext\bin\Debug\netcoreapp3.0\A3 DbContext.runtimeconfig.dev.json
+C:\Users\formacio\Desktop\Marc Exercicis\Exercicis-.NET-Course\Bloc C# y Java\Practica Troncal\A3 DbContext\A3 DbContext\bin\Debug\netcoreapp3.0\A3 DbContext.dll
+C:\Users\formacio\Desktop\Marc Exercicis\Exercicis-.NET-Course\Bloc C# y Java\Practica Troncal\A3 DbContext\A3 DbContext\bin\Debug\netcoreapp3.0\A3 DbContext.pdb
+C:\Users\formacio\Desktop\Marc Exercicis\Exercicis-.NET-Course\Bloc C# y Java\Practica Troncal\A3 DbContext\A3 DbContext\obj\Debug\netcoreapp3.0\A3 DbContext.csprojAssemblyReference.cache
+C:\Users\formacio\Desktop\Marc Exercicis\Exercicis-.NET-Course\Bloc C# y Java\Practica Troncal\A3 DbContext\A3 DbContext\obj\Debug\netcoreapp3.0\A3 DbContext.AssemblyInfoInputs.cache
+C:\Users\formacio\Desktop\Marc Exercicis\Exercicis-.NET-Course\Bloc C# y Java\Practica Troncal\A3 DbContext\A3 DbContext\obj\Debug\netcoreapp3.0\A3 DbContext.AssemblyInfo.cs
+C:\Users\formacio\Desktop\Marc Exercicis\Exercicis-.NET-Course\Bloc C# y Java\Practica Troncal\A3 DbContext\A3 DbContext\obj\Debug\netcoreapp3.0\A3 DbContext.dll
+C:\Users\formacio\Desktop\Marc Exercicis\Exercicis-.NET-Course\Bloc C# y Java\Practica Troncal\A3 DbContext\A3 DbContext\obj\Debug\netcoreapp3.0\A3 DbContext.pdb

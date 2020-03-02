@@ -75,7 +75,7 @@ namespace A3_DbContext
             }
             #endregion
 
-            /*
+            
             #region Check duplicated
             if (checkifExists && DbContext.studentByDni.ContainsKey(dniNumber))
             {
@@ -83,7 +83,7 @@ namespace A3_DbContext
                 Console.WriteLine("Ya existe el dni.");
             }
             #endregion
-            */
+            
             if (tempIdSubject.ValidationSuccesful == true)
             {
                 tempIdSubject.ValidatedResult = dniNumber;
@@ -127,10 +127,12 @@ namespace A3_DbContext
             //If not, it means that the Id we are checking is used by this subject, so we need to update the info
             if (this.Id == Guid.Empty)
             {
+                Console.WriteLine("hello");
                 DbContext.CreateStudent(this);
             }
             else
             {
+                Console.WriteLine("sdfsdfsd");
                 DbContext.UpdateStudent(this);
             }
             return true;

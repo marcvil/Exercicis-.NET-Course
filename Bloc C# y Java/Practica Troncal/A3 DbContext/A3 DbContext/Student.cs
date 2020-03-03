@@ -80,7 +80,7 @@ namespace A3_DbContext
             if (checkifExists && DbContext.studentByDni.ContainsKey(dniNumber))
             {
                 tempIdSubject.ValidationSuccesful = false;
-                Console.WriteLine("Ya existe el dni.");
+                tempIdSubject.Messages.Add("Dni ya existe");
             }
             #endregion
             
@@ -99,7 +99,6 @@ namespace A3_DbContext
             var lockerValidation = ValidateLockerkeyNumber(this.LockerKeyNumber.ToString());
             if (lockerValidation.ValidationSuccesful == false)
             {
-
                 return false;
             }
             
@@ -127,12 +126,10 @@ namespace A3_DbContext
             //If not, it means that the Id we are checking is used by this subject, so we need to update the info
             if (this.Id == Guid.Empty)
             {
-                Console.WriteLine("hello");
                 DbContext.CreateStudent(this);
             }
             else
             {
-                Console.WriteLine("sdfsdfsd");
                 DbContext.UpdateStudent(this);
             }
             return true;

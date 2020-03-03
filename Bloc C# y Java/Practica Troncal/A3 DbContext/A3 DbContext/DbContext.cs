@@ -29,11 +29,9 @@ namespace A3_DbContext
 
             return true;
         }
-        public static void ReadStudent()
+        public static void ReadStudent(string strInput)
         {
-            string strInput = Console.ReadLine();
-
-
+            
             if (DbContext.studentByDni.ContainsKey(strInput))
             {
                 Console.WriteLine(DbContext.studentByDni[strInput].Dni);

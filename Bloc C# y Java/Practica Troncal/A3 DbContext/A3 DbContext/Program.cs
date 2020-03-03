@@ -146,7 +146,7 @@ namespace A3_DbContext
                         }
 
                         inputLockerKey = Console.ReadLine();
-                        valResultLocker=Student.ValidateLockerkeyNumber(inputLockerKey);
+                        valResultLocker = Student.ValidateLockerkeyNumber(inputLockerKey);
                     }
                     #endregion
 
@@ -154,13 +154,12 @@ namespace A3_DbContext
                     {
                         Student student = new Student(valResultLocker.ValidatedResult, valResultDni.ValidatedResult, valResultName.ValidatedResult, valResultMail.ValidatedResult);
 
-                        student.Save();
-
-                        if (student.Save() == true)
+                        
+                        if (student.Save())
                         {
                             Console.WriteLine("Guardado!");
                         }
-                        else
+                        else 
                         {
                             Console.WriteLine("Alumno no guardado debido a errores.");
                         }
@@ -168,11 +167,15 @@ namespace A3_DbContext
                 }
                 else if (option == 2)
                 {
-                    DbContext.ReadStudent();
+                    Console.WriteLine("Escribe el dni del alumno.");
+                    string strInput = Console.ReadLine();
+                    DbContext.ReadStudent(strInput);
                 }
                 else if (option == 3)
                 {
-
+                    Console.WriteLine("Escribe el dni del alumno.");
+                    string strInput = Console.ReadLine();
+                    DbContext.UpdateStudent(DbContext.studentByDni[strInput]);
                 }
                 else if (option == 4)
                 {

@@ -5,7 +5,7 @@ namespace A3_DbContext
     public class Exam : Entity
     {
         public double FinalMark { get; set; }
-        //public DateTime ExamDate { get; set; }
+        
 
         public Student Student { get; set; }
 
@@ -15,11 +15,12 @@ namespace A3_DbContext
         {
 
         }
-        public Exam(double finalMark, Student student)
+        public Exam(double finalMark, Student student,Subject subject)
         {
 
             this.FinalMark = finalMark;
             this.Student = student;
+            this.Subject = subject;
         }
 
 
@@ -55,21 +56,7 @@ namespace A3_DbContext
 
             return tempfinalMark;
         }
-        /*
-        public static ValidationResult<DateTime> ValidateDateTime(DateTime dateTime)
-        {
-            ValidationResult<DateTime> tempDateTime = new ValidationResult<DateTime>();
-
-            tempDateTime.ValidationSuccesful = true;
-
-            if (tempDateTime.ValidationSuccesful == true)
-            {
-                tempDateTime.ValidatedResult = dateTime;
-            }
-
-            return tempDateTime;
-        }
-        */
+        
         public static ValidationResult<Student> ValidateStudent(string dniNumber)
         {
             ValidationResult<Student> tempIdStudent = new ValidationResult<Student>();
@@ -92,6 +79,35 @@ namespace A3_DbContext
             return tempIdStudent;
         }
 
+        public static ValidationResult<Subject> ValidateSubject(string subjectName)
+        {
+            ValidationResult<Subject> tempSubject = new ValidationResult<Subject>();
+
+            tempSubject.ValidationSuccesful = true;
+
+            #region Check null or empty
+            if (string.IsNullOrEmpty(subjectName))
+            {
+                tempSubject.ValidationSuccesful = false;
+                tempSubject.Messages.Add("dninumber null or empty.");
+            }
+            #endregion
+
+            if (tempSubject.ValidationSuccesful == true)
+            {
+                foreach(Subject s in DbContext.subjectList.Values)
+                {
+                    if (s.SubjectName == subjectName)
+                    {
+                        tempSubject.ValidatedResult = s;
+                    }
+                }
+               
+            }
+
+            return tempSubject;
+        }
+
         public bool Save()
         {
             //Creo el objeto para guardar los valores de las validaciones
@@ -112,7 +128,11 @@ namespace A3_DbContext
             {
                 return false;
             }
-
+            var subjectValidation = ValidateSubject(this.Subject.SubjectName);
+            if (subjectValidation.ValidationSuccesful == false)
+            {
+                return false;
+            }
             // check if guid is available. 
             //If not, it means that the Id we are checking is used by this subject, so we need to update the info
             if (this.Id == Guid.Empty)

@@ -44,16 +44,22 @@ namespace A3_DbContext
         }
         public static bool UpdateStudent(Student student)
         {
-            if (student.Id != Guid.Empty && DbContext.studentList.ContainsKey(student.Id))
+            var tempStudent = studentByDni[student.Dni];
+            student.Id = tempStudent.Id;
+            if (student.Id != Guid.Empty )
             {
-                Student tempStudent = studentList[student.Id];
+               
                 if (student != tempStudent)
                 {
-                    studentList[student.Id] = student;
-
+                    studentList.Remove(tempStudent.Id);
+                    studentList.Add(tempStudent.Id,student);
+                    studentByDni.Remove(student.Dni);
+                    studentByDni.Add(student.Dni, student);
+                       
                 }
+            
             }
-            else
+            else 
             {
                 CreateStudent(student);
             }
@@ -65,6 +71,7 @@ namespace A3_DbContext
             if (DbContext.studentList.ContainsKey(student.Id))
             {
                 studentList.Remove(student.Id);
+                studentByDni.Remove(student.Dni);
                 return true;
             }
             else return false;
@@ -89,14 +96,13 @@ namespace A3_DbContext
         }
         public static bool UpdateSubject(Subject subject)
         {
-            if (subject.Id != Guid.Empty && DbContext.subjectList.ContainsKey(subject.Id))
+            
+            if (subject.Id != Guid.Empty)
             {
-                Subject tempSubject = subjectList[subject.Id];
-                if (subject != tempSubject)
-                {
-                    subjectList[subject.Id] = subject;
-
-                }
+                
+                 subjectList.Remove(subject.Id);
+                 subjectList.Add(subject.Id, subject);
+                  
             }
             else
             {

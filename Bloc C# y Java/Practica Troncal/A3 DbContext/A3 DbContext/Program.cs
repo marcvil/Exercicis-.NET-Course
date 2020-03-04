@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace A3_DbContext
 {
@@ -271,7 +272,7 @@ namespace A3_DbContext
                 {
                     looping = false;
 
-                    break;
+                    return;
                 }
                 else
                 {
@@ -548,13 +549,13 @@ namespace A3_DbContext
                     Console.WriteLine("Escribe el nombre de la asignatura que quieras buscar");
                     string subjectname = Console.ReadLine();
 
-                    foreach (Exam ex in DbContext.examList.Values)
+                    IEnumerable<Exam> ex= DbContext.ReadExam(subjectname, studentName);
+
+                    foreach(Exam exam in ex)
                     {
-                        if (studentName == ex.Student.Name && subjectname == ex.Subject.SubjectName)
-                        {
-                            Console.WriteLine("La nota es " + ex.FinalMark + " con id " + ex.Id);
-                        }
+                        Console.WriteLine("Nota Final:" + exam.FinalMark + " en el examen con el siguiente id:" + exam.Id);
                     }
+                    
 
                 }
                 else if (option == 3)

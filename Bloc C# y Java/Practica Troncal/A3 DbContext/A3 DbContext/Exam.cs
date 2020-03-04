@@ -6,7 +6,7 @@ namespace A3_DbContext
     {
         public double FinalMark { get; set; }
         
-
+        
         public Student Student { get; set; }
 
         public Subject Subject { get; set; }

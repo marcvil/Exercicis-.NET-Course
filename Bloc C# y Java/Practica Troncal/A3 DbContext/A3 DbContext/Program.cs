@@ -30,7 +30,6 @@ namespace A3_DbContext
                     ShowExamManagementMenu();
 
                 }
-                
                 else
                 {
                     Console.WriteLine("El número no es valido. Vuelve a introducir los datos.");
@@ -657,7 +656,7 @@ namespace A3_DbContext
                 Console.WriteLine("1. Ver la nota media de todos los alumnos.");
                 Console.WriteLine("2. Ver el alumno con la nota mínima.");
                 Console.WriteLine("3. Ver el alumno con la nota máxima.");
-                Console.WriteLine("4. Volver al menú principal");
+                
 
             }
         }

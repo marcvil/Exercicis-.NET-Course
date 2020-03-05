@@ -11,36 +11,26 @@ namespace A3_DbContext
             bool looping = true;
 
             Console.WriteLine("Hola Profesor! Esta es una aplicación para ayudarte a analizar las notas de tus alumnos.");
-            ShowMainMenu();
+            
             while (looping)
             {
+                ShowMainMenu();
                 option = Input.InputInt();
 
                 if (option == 1)
                 {
-                    foreach (string s in DbContext.studentByDni.Keys)
-                    {
-                        Console.WriteLine(s);
-                        Console.WriteLine("Hola");
-                    }
                     ShowStudentsManagementMenu();
-
                 }
                 else if (option == 2)
                 {
-
                     ShowSubjectsManagementMenu();
-
-
                 }
                 else if (option == 3)
                 {
-
                     ShowExamManagementMenu();
 
-
                 }
-
+                
                 else
                 {
                     Console.WriteLine("El número no es valido. Vuelve a introducir los datos.");
@@ -271,14 +261,10 @@ namespace A3_DbContext
                 else if (option == 5)
                 {
                     looping = false;
-
-                    return;
                 }
                 else
                 {
                     looping = false;
-                    break;
-
                 }
 
             }
@@ -492,6 +478,23 @@ namespace A3_DbContext
                     }
                     #endregion
 
+                    #region Input Comment
+                    Console.WriteLine("Escribe el dni del alumno que ha realizado ele xamen");
+                    string inputComment = Console.ReadLine();
+
+                    ValidationResult<String> valResultComment = Exam.ValidateComment(inputComment);
+
+                    while (!valResultComment.ValidationSuccesful)
+                    {
+                        foreach (var msg in valResultComment.Messages)
+                        {
+                            Console.WriteLine(msg);
+                        }
+                        inputComment = Console.ReadLine();
+                        valResultComment = Exam.ValidateComment(inputComment);
+                    }
+                    #endregion
+
                     #region Input StudentDNi
                     Console.WriteLine("Escribe el dni del alumno que ha realizado ele xamen");
                     string inputStudentDni = Console.ReadLine();
@@ -526,9 +529,9 @@ namespace A3_DbContext
                     }
                     #endregion
 
-                    if (valResultStudent.ValidationSuccesful && valResultFinalMark.ValidationSuccesful && valResultSubject.ValidationSuccesful)
+                    if (valResultStudent.ValidationSuccesful && valResultFinalMark.ValidationSuccesful && valResultSubject.ValidationSuccesful && valResultComment.ValidationSuccesful)
                     {
-                        var exam = new Exam(valResultFinalMark.ValidatedResult, valResultStudent.ValidatedResult, valResultSubject.ValidatedResult);
+                        var exam = new Exam(valResultFinalMark.ValidatedResult, valResultStudent.ValidatedResult, valResultSubject.ValidatedResult,valResultComment.ValidatedResult);
 
 
                         if (exam.Save() == true)
@@ -544,16 +547,16 @@ namespace A3_DbContext
                 else if (option == 2)
                 {
                     Console.Clear();
-                    Console.WriteLine("Escribe el nombre del estudiante que quieras buscar");
-                    string studentName = Console.ReadLine();
+                    Console.WriteLine("Escribe el Dni del estudiante que quieras buscar");
+                    string studentDni = Console.ReadLine();
                     Console.WriteLine("Escribe el nombre de la asignatura que quieras buscar");
                     string subjectname = Console.ReadLine();
 
-                    IEnumerable<Exam> ex= DbContext.ReadExam(subjectname, studentName);
+                    IEnumerable<Exam> ex= DbContext.ReadExam(subjectname, studentDni);
 
                     foreach(Exam exam in ex)
                     {
-                        Console.WriteLine("Nota Final:" + exam.FinalMark + " en el examen con el siguiente id:" + exam.Id);
+                        Console.WriteLine("Nota Final:" + exam.FinalMark + " en el examen con el siguiente comentario:" + exam.Comment);
                     }
                     
 
@@ -635,14 +638,15 @@ namespace A3_DbContext
 
                 }
                 else if (option == 4)
-                    {
+                 {
                         //TODO DeleteExam()
-                    }
+                }
 
-                    else
-                    {
-                        looping = false;
-                    }
+                else
+                {
+                    looping = false;
+                    break;
+                }
 
                 }
             }

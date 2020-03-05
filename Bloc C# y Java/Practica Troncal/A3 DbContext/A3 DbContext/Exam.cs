@@ -6,7 +6,7 @@ namespace A3_DbContext
     {
         public double FinalMark { get; set; }
         
-        
+        public string Comment { get; set; }
         public Student Student { get; set; }
 
         public Subject Subject { get; set; }
@@ -15,12 +15,13 @@ namespace A3_DbContext
         {
 
         }
-        public Exam(double finalMark, Student student,Subject subject)
+        public Exam(double finalMark, Student student,Subject subject, String comment)
         {
 
             this.FinalMark = finalMark;
             this.Student = student;
             this.Subject = subject;
+            this.Comment = comment;
         }
 
 
@@ -56,7 +57,33 @@ namespace A3_DbContext
 
             return tempfinalMark;
         }
-        
+
+        public static ValidationResult<string> ValidateComment(string comment)
+        {
+            ValidationResult<string> tempComment = new ValidationResult<string>();
+
+            tempComment.ValidationSuccesful = true;
+
+            #region Check null or empty
+            if (string.IsNullOrEmpty(comment))
+            {
+                tempComment.ValidationSuccesful = false;
+                tempComment.Messages.Add("dninumber null or empty.");
+            }
+            #endregion
+
+
+
+            if (tempComment.ValidationSuccesful == true)
+            {
+                tempComment.ValidatedResult = comment;
+            }
+
+            return tempComment;
+        }
+
+
+
         public static ValidationResult<Student> ValidateStudent(string dniNumber)
         {
             ValidationResult<Student> tempIdStudent = new ValidationResult<Student>();
@@ -116,13 +143,13 @@ namespace A3_DbContext
             {
                 return false;
             }
-            /*
-            var datevalidation = ValidateDateTime(this.ExamDate);
-            if (datevalidation.ValidationSuccesful == false)
+            
+            var commentvalidation = ValidateComment(this.Comment);
+            if (commentvalidation.ValidationSuccesful == false)
             {
                 return false;
             }
-            */
+            
             var studentValidation = ValidateStudent(this.Student.Dni);
             if (studentValidation.ValidationSuccesful == false)
             {

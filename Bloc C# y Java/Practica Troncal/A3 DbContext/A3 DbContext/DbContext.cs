@@ -133,9 +133,9 @@ namespace A3_DbContext
             examList.Add(exam.Id, exam);
             return true;
         }
-        public static IEnumerable<Exam> ReadExam( string subjectName, string studentName)
+        public static IEnumerable<Exam> ReadExam( string subjectName, string studentDni)
         {
-            return examList.Values.Where(x => x.Subject.SubjectName == subjectName && x.Student.Name == studentName);
+            return examList.Values.Where(x => x.Subject.SubjectName == subjectName && x.Student.Dni == studentDni);
         }
         public static bool UpdateExam(Exam exam)
         {

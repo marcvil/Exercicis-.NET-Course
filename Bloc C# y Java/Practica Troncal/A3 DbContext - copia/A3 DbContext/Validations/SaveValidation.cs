@@ -4,13 +4,13 @@ using System.Collections.Generic;
 
 namespace A3_DbContext
 {
-	public class SaveValidation<T>
+	public class SaveValidation<T> where T: Entity
 	{
-		public T ValidatedSaveResult { get; set; }
+		public T EntityValidated { get; set; }
 
 		public bool SaveValidationSuccesful { get; set; }
 
-		public List<string> SaveResultMessages { get; set; } = new List<string>();
+		public List<string> SaveValidationMessages { get; set; } = new List<string>();
 
 	}
 }

@@ -144,8 +144,8 @@ namespace A3_DbContext
                     {
                         Student student = new Student(valResultLocker.ValidatedResult, valResultDni.ValidatedResult, valResultName.ValidatedResult, valResultMail.ValidatedResult);
 
-
-                        if (student.Save())
+                        var sr = student.Save<Student>();
+                        if (sr.SaveValidationSuccesful)
                         {
                             Console.WriteLine("Guardado!");
                         }
@@ -259,7 +259,10 @@ namespace A3_DbContext
                 }
                 else if (option == 5)
                 {
-                    looping = false;
+                    foreach(Student s in DbContext.studentByDni.Values)
+                    {
+                        Console.WriteLine(s.Name);
+                    }
                 }
                 else
                 {

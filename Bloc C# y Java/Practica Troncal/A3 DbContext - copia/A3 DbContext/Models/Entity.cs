@@ -14,10 +14,25 @@ namespace A3_DbContext
             var result = new SaveValidation<T>();
             CurrentValidation = Validate();
 
-            result.Validation = CurrentValidation;
+            var repo = new Repository<T>();
 
+            if (CurrentValidation.ValidationSuccesful)
+            {
+                if (this.Id == Guid.Empty)
+                {
+                    this.Id = Guid.NewGuid();
+                    result = repo.Add(this as T);
+                }
+                else
+                {
+                    result = repo.Update(this as T);
+                }
+            }
+
+            result.Validation = CurrentValidation;
             return result;
         }
+          
 
         public virtual ValidationResult Validate()
         {

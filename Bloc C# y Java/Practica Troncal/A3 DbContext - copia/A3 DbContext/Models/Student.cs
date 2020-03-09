@@ -26,7 +26,7 @@ namespace A3_DbContext
             this.Mail = mail;
         }
 
-
+        #region Static validations
         public static ValidationResult<int> ValidateLockerkeyNumber(string lockerKeyNumber)
         {
             ValidationResult<int> tempLockerkeyNumber = new ValidationResult<int>();
@@ -75,7 +75,7 @@ namespace A3_DbContext
             }
             #endregion
 
-            
+
             #region Check duplicated
             if (checkifExists && DbContext.studentByDni.ContainsKey(dniNumber))
             {
@@ -83,7 +83,7 @@ namespace A3_DbContext
                 tempIdSubject.Messages.Add("Dni ya existe");
             }
             #endregion
-            
+
             if (tempIdSubject.ValidationSuccesful == true)
             {
                 tempIdSubject.ValidatedResult = dniNumber;
@@ -92,47 +92,66 @@ namespace A3_DbContext
             return tempIdSubject;
         }
 
+        #endregion
 
-        public bool Save()
+        #region Domain Validations
+        public void ValidateName(ValidationResult valResult)
         {
-            //Creo el objeto para guardar los valores de las validaciones
-            var lockerValidation = ValidateLockerkeyNumber(this.LockerKeyNumber.ToString());
-            if (lockerValidation.ValidationSuccesful == false)
+            var nameValidation = ValidateName(this.Name);
+            if (!nameValidation.ValidationSuccesful)
             {
-                return false;
+                valResult.ValidationSuccesful = false;
+                valResult.Messages.AddRange(nameValidation.Messages);
             }
-            
+        }
+        public void ValidateLockerKey(ValidationResult valResult)
+        {
+            var lockerValidation = ValidateLockerkeyNumber(this.LockerKeyNumber.ToString());
+            if (!lockerValidation.ValidationSuccesful)
+            {
+                valResult.ValidationSuccesful = false;
+                valResult.Messages.AddRange(lockerValidation.Messages);
+            }
+        }
+
+        public void ValidateDni(ValidationResult valResult)
+        {
             var dniValidation = ValidateDni(this.Dni, true);
             if (dniValidation.ValidationSuccesful == false)
             {
-                
-                return false;
+                valResult.ValidationSuccesful = false;
+                valResult.Messages.AddRange(dniValidation.Messages);
             }
-            
-
-            var nameValidation = ValidateName(this.Name);
-            if (nameValidation.ValidationSuccesful == false)
-            {
-                return false;
-            }
+        }
+        public void ValidateMail(ValidationResult valResult)
+        {
             var mailValidation = ValidateMail(this.Mail);
             if (mailValidation.ValidationSuccesful == false)
             {
-
-                return false;
+                valResult.ValidationSuccesful = false;
+                valResult.Messages.AddRange(mailValidation.Messages);
             }
+        }
+        #endregion
 
+        public SaveValidation<Student> Save()
+        {
+            var saveResult = base.Save<Student>();
+            return saveResult;
+        }
+
+
+        public override ValidationResult Validate()
+        {
+            var output = base.Validate();
             // check if guid is available. 
             //If not, it means that the Id we are checking is used by this subject, so we need to update the info
-            if (this.Id == Guid.Empty)
-            {
-                DbContext.CreateStudent(this);
-            }
-            else
-            {
-                DbContext.UpdateStudent(this);
-            }
-            return true;
+            ValidateDni(output);
+            ValidateLockerKey(output);
+            ValidateMail(output);
+            ValidateName(output);
+
+            return output;
         }
     }
 }

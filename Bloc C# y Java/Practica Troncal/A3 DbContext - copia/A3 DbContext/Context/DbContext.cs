@@ -16,6 +16,8 @@ namespace A3_DbContext
         #region CRUD Operations
 
         #region Student CRUD
+
+       
         public static bool CreateStudent(Student student)
         {
             if (student.Id != Guid.Empty)

@@ -24,6 +24,19 @@ namespace A3_DbContext
 
 		public T Entity { get; set; }
 
+
+		//constructor para que sea true por defecto
+		public SaveValidation()
+		{
+			
+		}
+		public SaveValidation(bool initTrue)
+		{
+			this.SaveValidationSuccesful = initTrue;
+		}
+
+
+
 		public SaveValidation<TOut> Cast<TOut>() where TOut : Entity
 		{
 			var output = new SaveValidation<TOut>

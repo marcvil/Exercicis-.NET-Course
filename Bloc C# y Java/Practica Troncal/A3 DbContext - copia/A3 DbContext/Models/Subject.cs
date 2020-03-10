@@ -20,7 +20,7 @@ namespace A3_DbContext
 
         }
 
-
+        #region static validations
         public static ValidationResult<string> ValidateSubjectName(string subjectname)
         {
             ValidationResult<string> tempsubjectName = new ValidationResult<string>();
@@ -68,36 +68,46 @@ namespace A3_DbContext
 
             return tempIdSubject;
         }
+        #endregion
 
 
-        public bool Save()
+        #region Domain Validations
+        public void ValidateSubjectName(ValidationResult valResult)
         {
-            //Creo el objeto para guardar los valores de las validaciones
-            var stringvalidation = ValidateSubjectName(this.SubjectName);
-            if (stringvalidation.ValidationSuccesful == false)
+            var subjectNamevalidation = ValidateSubjectName(this.SubjectName);
+            if (subjectNamevalidation.ValidationSuccesful == false)
             {
-               
-                return false;
+                valResult.ValidationSuccesful = false;
+                valResult.Messages.AddRange(subjectNamevalidation.Messages);
             }
-
-            var intvalidation = ValidateIdSubject(this.SubjectCode);
-            if (intvalidation.ValidationSuccesful == false)
-            {
-               
-                return false;
-            }
-
-            // check if guid is available. 
-            //If not, it means that the Id we are checking is used by this subject, so we need to update the info
-            if (this.Id == Guid.Empty)
-            {
-                DbContext.CreateSubject(this);
-            }
-            else
-            {
-                DbContext.UpdateSubject(this);
-            }
-            return true;
         }
+
+        public void ValidateIdSubject(ValidationResult valResult)
+        {
+            var idSubjectvalidation = ValidateIdSubject(this.SubjectCode);
+            if (idSubjectvalidation.ValidationSuccesful == false)
+            {
+                valResult.ValidationSuccesful = false;
+                valResult.Messages.AddRange(idSubjectvalidation.Messages);
+            }
+        }
+
+        public SaveValidation<Subject> Save()
+        {
+            var saveResult = base.Save<Subject>();
+            return saveResult;
+        }
+        #endregion
+
+        public override ValidationResult Validate()
+        {
+            var output = base.Validate();
+
+            ValidateIdSubject(this.SubjectCode);
+            ValidateSubjectName(this.SubjectName);
+
+            return output;
+        }
+        
     }
 }

@@ -72,17 +72,11 @@ namespace A3_DbContext
                     Console.WriteLine("Escribe el DNI");
                     string inputDni = Console.ReadLine();
 
-                    ValidationResult<string> valResultDni = Student.ValidateDni(inputDni, true);
-
-                    while (!valResultDni.ValidationSuccesful)
+                    ValidationResult<string> valResultDni;
+                    while (!(valResultDni = Student.ValidateDni(inputDni)).ValidationSuccesful)
                     {
-                        foreach (var msg in valResultDni.Messages)
-                        {
-                            Console.WriteLine(msg);
-                        }
-
                         inputDni = Console.ReadLine();
-                        valResultDni = Student.ValidateDni(inputDni, true);
+                        valResultDni = Student.ValidateDni(inputDni);
                     }
                     #endregion
 
@@ -170,7 +164,7 @@ namespace A3_DbContext
                         #region Input DNI
 
 
-                        ValidationResult<string> valResultDni = Student.ValidateDni(strInput, false);
+                        ValidationResult<string> valResultDni = Student.ValidateDni(strInput);
 
                         while (!valResultDni.ValidationSuccesful)
                         {
@@ -180,7 +174,7 @@ namespace A3_DbContext
                             }
 
                             strInput = Console.ReadLine();
-                            valResultDni = Student.ValidateDni(strInput, true);
+                            valResultDni = Student.ValidateDni(strInput);
                         }
                         #endregion
 
@@ -259,7 +253,7 @@ namespace A3_DbContext
                 }
                 else if (option == 5)
                 {
-                    foreach(Student s in DbContext.studentByDni.Values)
+                    foreach(Student s in Repository<Student>.DbSet.Values)
                     {
                         Console.WriteLine(s.Name);
                     }
@@ -331,8 +325,8 @@ namespace A3_DbContext
                     {
                         var subject = new Subject(valResultSubjectCode.ValidatedResult.ToString(), valResultSubjectname.ValidatedResult);
 
-
-                        if (subject.Save() == true)
+                        var sr = subject.Save<Subject>();
+                        if (sr.SaveValidationSuccesful)
                         {
                             Console.WriteLine("Guardado!");
                         }

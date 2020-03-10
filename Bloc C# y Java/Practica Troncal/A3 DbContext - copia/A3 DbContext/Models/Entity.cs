@@ -32,7 +32,7 @@ namespace A3_DbContext
             result.Validation = CurrentValidation;
             return result;
         }
-          
+
 
         public virtual ValidationResult Validate()
         {
@@ -42,6 +42,15 @@ namespace A3_DbContext
 
             return result;
         }
+        public virtual Repository<T> GetRepo<T>() where T : Entity
+        {
+            var output = new Repository<T>();
+
+            return output;
+        }
+       
+        
+        
     }
 }
 

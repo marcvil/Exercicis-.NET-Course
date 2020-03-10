@@ -34,13 +34,13 @@ namespace A3_DbContext
         public static void ReadStudent(string strInput)
         {
             
-            if (DbContext.studentByDni.ContainsKey(strInput))
+            if (StudentRepository.studentByDni.ContainsKey(strInput))
             {
-                Console.WriteLine(DbContext.studentByDni[strInput].Dni);
-                Console.WriteLine(DbContext.studentByDni[strInput].Name);
-                Console.WriteLine(DbContext.studentByDni[strInput].Id);
-                Console.WriteLine(DbContext.studentByDni[strInput].LockerKeyNumber);
-                Console.WriteLine(DbContext.studentByDni[strInput].Mail);
+                Console.WriteLine(StudentRepository.studentByDni[strInput].Dni);
+                Console.WriteLine(StudentRepository.studentByDni[strInput].Name);
+                Console.WriteLine(StudentRepository.studentByDni[strInput].Id);
+                Console.WriteLine(StudentRepository.studentByDni[strInput].LockerKeyNumber);
+                Console.WriteLine(StudentRepository.studentByDni[strInput].Mail);
             }
             else { Console.WriteLine("No encontrado"); }
         }

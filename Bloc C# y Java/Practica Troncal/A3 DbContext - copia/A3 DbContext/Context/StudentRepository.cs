@@ -1,29 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace A3_DbContext
 {
 	public class StudentRepository: Repository<Student>
 	{
-		public static Dictionary<string, Student> studentRepo = new Dictionary<string, Student>();
+		public static Dictionary<string, Student> studentByDni = new Dictionary<string, Student>();
 
         public override SaveValidation<Student> Add(Student entity)
         {
-            var output = new SaveValidation<Student>();
-
-            if (entity.Id == Guid.Empty)
-            {
-                entity.Id = Guid.NewGuid();
-            }
-            if (DbSet.ContainsKey(entity.Id))
-            {
-                output.SaveValidationSuccesful = false;
-                output.SaveValidationMessages.Add("Ya existe con este GUID");
-            }
+            var output = base.Add(entity);
 
             if (output.SaveValidationSuccesful)
             {
-                DbSet.Add(entity.Id, entity);
+                studentByDni.Add(entity.Dni, entity);
             }
 
             return output;
@@ -31,24 +22,24 @@ namespace A3_DbContext
 
         public override SaveValidation<Student> Update(Student entity)
         {
-            var output = new SaveValidation<Student>();
 
-            if (entity.Id == Guid.Empty)
-            {
-                entity.Id = Guid.NewGuid();
-            }
-            if (DbSet.ContainsKey(entity.Id))
-            {
-                output.SaveValidationSuccesful = false;
-                output.SaveValidationMessages.Add("Ya existe con este GUID");
-            }
+            var output = base.Update(entity);
 
             if (output.SaveValidationSuccesful)
             {
-                DbSet.Add(entity.Id, entity);
+                studentByDni[output.Entity.Dni] = output.Entity;
             }
 
             return output;
+        }
+
+        public static Student GetStudentByDni(string strDni)
+        {
+            if (studentByDni.ContainsKey(strDni))
+            {
+                return studentByDni[strDni];
+            }
+            return null;
         }
     }
 }

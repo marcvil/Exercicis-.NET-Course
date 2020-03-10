@@ -21,8 +21,8 @@ namespace A3_DbContext
 
         public virtual SaveValidation<T> Add(T entity)
         {
-            var output = new SaveValidation<T>();
-           
+            var output = new SaveValidation<T>(true);
+            
             if (entity.Id == Guid.Empty)
             {
                 entity.Id = Guid.NewGuid();
@@ -36,6 +36,7 @@ namespace A3_DbContext
             if (output.SaveValidationSuccesful)
             {
                 DbSet.Add(entity.Id, entity);
+                
             }
 
            return output;
@@ -57,7 +58,7 @@ namespace A3_DbContext
 
             if (output.SaveValidationSuccesful)
             {
-                DbSet.Add(entity.Id, entity);
+                DbSet[output.Entity.Id] = output.Entity;
             }
 
             return output;

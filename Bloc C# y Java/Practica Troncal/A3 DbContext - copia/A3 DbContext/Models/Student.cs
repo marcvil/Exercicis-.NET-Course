@@ -61,7 +61,7 @@ namespace A3_DbContext
             return tempLockerkeyNumber;
         }
 
-        public static ValidationResult<string> ValidateDni(string dniNumber, bool checkifExists)
+        public static ValidationResult<string> ValidateDni(string dniNumber)
         {
             ValidationResult<string> tempIdSubject = new ValidationResult<string>();
 
@@ -75,14 +75,6 @@ namespace A3_DbContext
             }
             #endregion
 
-
-            #region Check duplicated
-            if (checkifExists && DbContext.studentByDni.ContainsKey(dniNumber))
-            {
-                tempIdSubject.ValidationSuccesful = false;
-                tempIdSubject.Messages.Add("Dni ya existe");
-            }
-            #endregion
 
             if (tempIdSubject.ValidationSuccesful == true)
             {
@@ -116,7 +108,7 @@ namespace A3_DbContext
 
         public void ValidateDni(ValidationResult valResult)
         {
-            var dniValidation = ValidateDni(this.Dni, true);
+            var dniValidation = ValidateDni(this.Dni);
             if (dniValidation.ValidationSuccesful == false)
             {
                 valResult.ValidationSuccesful = false;
@@ -150,6 +142,13 @@ namespace A3_DbContext
             ValidateLockerKey(output);
             ValidateMail(output);
             ValidateName(output);
+
+            return output;
+        }
+
+        public override StudentRepository GetRepo<Student>() 
+        {
+            var output = new StudentRepository();
 
             return output;
         }

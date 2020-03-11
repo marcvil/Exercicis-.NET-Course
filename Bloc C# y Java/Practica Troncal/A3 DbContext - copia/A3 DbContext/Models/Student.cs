@@ -146,11 +146,17 @@ namespace A3_DbContext
             return output;
         }
 
-        public override StudentRepository GetRepo<Student>() 
+        public override Repository<T> GetRepo<T>() 
         {
             var output = new StudentRepository();
 
-            return output;
+            return output as Repository<T>;
         }
+        public StudentRepository GetStudentRepo()
+        {
+
+            return GetRepo<Student>() as StudentRepository;
+        }
+        
     }
 }

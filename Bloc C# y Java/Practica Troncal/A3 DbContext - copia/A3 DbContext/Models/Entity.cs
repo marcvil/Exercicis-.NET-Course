@@ -13,8 +13,7 @@ namespace A3_DbContext
         {
             var result = new SaveValidation<T>();
             CurrentValidation = Validate();
-
-            var repo = new Repository<T>();
+            var repo = GetRepo<T>();
 
             if (CurrentValidation.ValidationSuccesful)
             {
@@ -47,10 +46,9 @@ namespace A3_DbContext
             var output = new Repository<T>();
 
             return output;
+            
         }
-       
-        
-        
+
     }
 }
 

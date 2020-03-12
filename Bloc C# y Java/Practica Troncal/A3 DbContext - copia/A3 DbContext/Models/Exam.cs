@@ -5,8 +5,8 @@ namespace A3_DbContext
     public class Exam : Entity
     {
         public double FinalMark { get; set; }
-        
-        public string Comment { get; set; }
+
+        public string Title{ get; set; }
         public Student Student { get; set; }
 
         public Subject Subject { get; set; }
@@ -15,16 +15,16 @@ namespace A3_DbContext
         {
 
         }
-        public Exam(double finalMark, Student student,Subject subject, String comment)
+        public Exam(double finalMark, Student student, Subject subject, String title)
         {
 
             this.FinalMark = finalMark;
             this.Student = student;
             this.Subject = subject;
-            this.Comment = comment;
+            this.Title = title;
         }
 
-
+        #region static Validations
         public static ValidationResult<double> ValidateFinalMark(string finalmark)
         {
             ValidationResult<double> tempfinalMark = new ValidationResult<double>();
@@ -58,28 +58,28 @@ namespace A3_DbContext
             return tempfinalMark;
         }
 
-        public static ValidationResult<string> ValidateComment(string comment)
+        public static ValidationResult<string> ValidateTitle(string title)
         {
-            ValidationResult<string> tempComment = new ValidationResult<string>();
+            ValidationResult<string> tempTitle = new ValidationResult<string>();
 
-            tempComment.ValidationSuccesful = true;
+            tempTitle.ValidationSuccesful = true;
 
             #region Check null or empty
-            if (string.IsNullOrEmpty(comment))
+            if (string.IsNullOrEmpty(title))
             {
-                tempComment.ValidationSuccesful = false;
-                tempComment.Messages.Add("dninumber null or empty.");
+                tempTitle.ValidationSuccesful = false;
+                tempTitle.Messages.Add("dninumber null or empty.");
             }
             #endregion
 
 
 
-            if (tempComment.ValidationSuccesful == true)
+            if (tempTitle.ValidationSuccesful == true)
             {
-                tempComment.ValidatedResult = comment;
+                tempTitle.ValidatedResult = title;
             }
 
-            return tempComment;
+            return tempTitle;
         }
 
 
@@ -100,7 +100,7 @@ namespace A3_DbContext
 
             if (tempIdStudent.ValidationSuccesful == true)
             {
-                tempIdStudent.ValidatedResult = DbContext.studentByDni[dniNumber];
+                tempIdStudent.ValidatedResult = StudentRepository.GetStudentByDni(dniNumber);
             }
 
             return tempIdStudent;
@@ -122,55 +122,91 @@ namespace A3_DbContext
 
             if (tempSubject.ValidationSuccesful == true)
             {
-                foreach(Subject s in DbContext.subjectList.Values)
+                foreach (Subject s in SubjectRepository.subjectByCode.Values)
                 {
                     if (s.SubjectName == subjectName)
                     {
                         tempSubject.ValidatedResult = s;
                     }
                 }
-               
+
             }
 
             return tempSubject;
         }
+        #endregion
 
-        public bool Save()
+        #region Domain Validations
+        public void ValidateFinalMark(ValidationResult valResult)
         {
-            //Creo el objeto para guardar los valores de las validaciones
-            var stringvalidation = ValidateFinalMark(this.FinalMark.ToString());
-            if (stringvalidation.ValidationSuccesful == false)
+            var finalMarkvalidation = ValidateFinalMark(this.FinalMark.ToString());
+            if (finalMarkvalidation.ValidationSuccesful == false)
             {
-                return false;
+                valResult.ValidationSuccesful = false;
+                valResult.Messages.AddRange(finalMarkvalidation.Messages);
             }
-            
-            var commentvalidation = ValidateComment(this.Comment);
-            if (commentvalidation.ValidationSuccesful == false)
+        }
+        public void ValidateTitle(ValidationResult valResult)
+        {
+            var titlevalidation = ValidateTitle(this.Title);
+            if (titlevalidation.ValidationSuccesful == false)
             {
-                return false;
+                valResult.ValidationSuccesful = false;
+                valResult.Messages.AddRange(titlevalidation.Messages);
             }
-            
+        }
+
+        public void ValidateStudent(ValidationResult valResult)
+        {
             var studentValidation = ValidateStudent(this.Student.Dni);
             if (studentValidation.ValidationSuccesful == false)
             {
-                return false;
+                valResult.ValidationSuccesful = false;
+                valResult.Messages.AddRange(studentValidation.Messages);
             }
+        }
+        public void ValidateSubject(ValidationResult valResult)
+        {
             var subjectValidation = ValidateSubject(this.Subject.SubjectName);
             if (subjectValidation.ValidationSuccesful == false)
             {
-                return false;
+                valResult.ValidationSuccesful = false;
+                valResult.Messages.AddRange(subjectValidation.Messages);
             }
+        }
+        #endregion
+
+
+        public SaveValidation<Student> Save()
+        {
+            var saveResult = base.Save<Student>();
+            return saveResult;
+        }
+
+
+        public override ValidationResult Validate()
+        {
+            var output = base.Validate();
             // check if guid is available. 
             //If not, it means that the Id we are checking is used by this subject, so we need to update the info
-            if (this.Id == Guid.Empty)
-            {
-                DbContext.CreateExam(this);
-            }
-            else
-            {
-                DbContext.UpdateExam(this);
-            }
-            return true;
+            ValidateFinalMark(output);
+            ValidateTitle(output);
+            ValidateStudent(output);
+            ValidateSubject(output);
+
+            return output;
+        }
+
+        public override Repository<T> GetRepo<T>()
+        {
+            var output = new ExamRepository();
+
+            return output as Repository<T>;
+        }
+        public ExamRepository GetExamRepo()
+        {
+
+            return GetRepo<Exam>() as ExamRepository;
         }
     }
 }

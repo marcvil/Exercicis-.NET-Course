@@ -26,7 +26,7 @@ namespace A3_DbContext
             ValidationResult<string> tempsubjectName = new ValidationResult<string>();
 
             tempsubjectName.ValidationSuccesful = true;
-            Console.WriteLine(subjectname);
+          
             #region Check null or empty
             if (string.IsNullOrEmpty(subjectname))
             {
@@ -43,27 +43,23 @@ namespace A3_DbContext
             return tempsubjectName;
         }
 
-        public static ValidationResult<int> ValidateIdSubject(string subjectCode)
+        public static ValidationResult<string> ValidateIdSubject(string subjectCode)
         {
-            ValidationResult<int> tempIdSubject = new ValidationResult<int>();
+            ValidationResult<string> tempIdSubject = new ValidationResult<string>();
 
             tempIdSubject.ValidationSuccesful = true;
 
-            int subjectCodeNumber;
-            bool parsedConversion = Int32.TryParse(subjectCode, out subjectCodeNumber);
-
-            if (!parsedConversion)
+            #region Check null or empty
+            if (string.IsNullOrEmpty(subjectCode))
             {
-                
                 tempIdSubject.ValidationSuccesful = false;
-                tempIdSubject.Messages.Add("SubjectCode conversion failed");
+                tempIdSubject.Messages.Add("subjectName null or empty.");
             }
-
-
+            #endregion
 
             if (tempIdSubject.ValidationSuccesful == true)
             {
-                tempIdSubject.ValidatedResult = subjectCodeNumber;
+                tempIdSubject.ValidatedResult = subjectCode;
             }
 
             return tempIdSubject;
@@ -108,6 +104,17 @@ namespace A3_DbContext
 
             return output;
         }
-        
+        public override Repository<T> GetRepo<T>()
+        {
+            var output = new SubjectRepository();
+
+            return output as Repository<T>;
+        }
+        public SubjectRepository GetSubjectRepo()
+        {
+
+            return GetRepo<Subject>() as SubjectRepository;
+        }
+
     }
 }

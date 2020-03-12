@@ -63,7 +63,8 @@ namespace A3_DbContext
                 Console.WriteLine("2. Mostrar alumno.");
                 Console.WriteLine("3. Modificar alumno.");
                 Console.WriteLine("4. Borrar alumno.");
-                Console.WriteLine("5. Volver al menu.");
+                Console.WriteLine("5. Mostrar todos los alumnos.");
+                Console.WriteLine("Cualquier otra teca para volver al menú");
 
                 option = Input.InputInt();
                 if (option == 1)
@@ -153,14 +154,21 @@ namespace A3_DbContext
                 {
                     Console.WriteLine("Escribe el dni del alumno.");
                     string strInput = Console.ReadLine();
-                    DbContext.ReadStudent(strInput);
+                    Student st =StudentRepository.GetStudentByDni(strInput);
+                    Console.WriteLine(st.Name);
+                    Console.WriteLine(st.Mail);
+
+
                 }
                 else if (option == 3)
                 {
                     Console.WriteLine("Escribe el dni del alumno.");
                     string strInput = Console.ReadLine();
-                    if (DbContext.studentByDni.ContainsKey(strInput))
+                    
+                    if (StudentRepository.studentByDni.ContainsKey(strInput))
                     {
+                        Student studentClone = StudentRepository.studentByDni[strInput];
+                       
                         #region Input DNI
 
 
@@ -234,9 +242,22 @@ namespace A3_DbContext
 
                         if (valResultDni.ValidationSuccesful && valResultLocker.ValidationSuccesful && valResultName.ValidationSuccesful && valResultMail.ValidationSuccesful)
                         {
-                            Student student = new Student(valResultLocker.ValidatedResult, valResultDni.ValidatedResult, valResultName.ValidatedResult, valResultMail.ValidatedResult);
+                            studentClone.Dni = valResultDni.ValidatedResult;
+                            studentClone.Name = valResultName.ValidatedResult;
+                            studentClone.Mail = valResultMail.ValidatedResult;
+                            studentClone.LockerKeyNumber = valResultLocker.ValidatedResult;
 
-                            DbContext.UpdateStudent(student);
+
+
+                            var sr = studentClone.Save<Student>();
+                            if (sr.SaveValidationSuccesful)
+                            {
+                                Console.WriteLine("Guardado!");
+                            }
+                            else
+                            {
+                                Console.WriteLine("Alumno no guardado debido a errores.");
+                            }
                         }
                     }
 
@@ -253,9 +274,12 @@ namespace A3_DbContext
                 }
                 else if (option == 5)
                 {
-                    foreach(Student s in Repository<Student>.DbSet.Values)
+                    foreach(Student s in StudentRepository.studentByDni.Values)
                     {
                         Console.WriteLine(s.Name);
+                        Console.WriteLine(s.Dni);
+                        Console.WriteLine(s.Mail);
+                        Console.WriteLine(s.LockerKeyNumber);
                     }
                 }
                 else
@@ -306,7 +330,7 @@ namespace A3_DbContext
                     Console.WriteLine("Escribe el codigo numerico de la asignatura");
                     string inputCodeNumber = Console.ReadLine();
 
-                    ValidationResult<int> valResultSubjectCode = Subject.ValidateIdSubject(inputCodeNumber);
+                    ValidationResult<string> valResultSubjectCode = Subject.ValidateIdSubject(inputCodeNumber);
 
                     while (!valResultSubjectCode.ValidationSuccesful)
                     {
@@ -332,7 +356,7 @@ namespace A3_DbContext
                         }
                         else
                         {
-                            Console.WriteLine("Asignatrua no guardada debido a errores.");
+                            Console.WriteLine("Asignatura no guardada debido a errores.");
                         }
                     }
                 }
@@ -340,76 +364,93 @@ namespace A3_DbContext
                 {
                     Console.Clear();
                     Console.WriteLine("Escribe el nombre de la asignatura que quieras buscar");
-                    string subject = Console.ReadLine();
+                    string subjectCode = Console.ReadLine();
 
-                    foreach (Subject subj in DbContext.subjectList.Values)
+                    foreach (String subjCode in SubjectRepository.subjectByCode.Keys)
                     {
-                        if (subject == subj.SubjectName)
+                        if (subjectCode == subjCode)
                         {
-                            Console.WriteLine(subj.SubjectName + "\n" +
-                                subj.SubjectCode + "\n"
-                                + subj.Id);
+                            Console.WriteLine(SubjectRepository.subjectByCode[subjCode].SubjectName + "\n" +
+                                SubjectRepository.subjectByCode[subjCode].SubjectCode + "\n"
+                                + SubjectRepository.subjectByCode[subjCode].Id);
                         }
                     }
                 }
                 else if (option == 3)
                 {
-                    Console.WriteLine("Escribe el nombre de la asignatura que quieras buscar");
-                    string subjectName = Console.ReadLine();
-                    Guid id = new Guid();
-                    foreach (Subject s in DbContext.subjectList.Values)
+                    Console.WriteLine("Escribe el codigo de la asignatura que quieras buscar");
+                    string subjectCode = Console.ReadLine();
+                    if (SubjectRepository.subjectByCode.ContainsKey(subjectCode))
                     {
-                        if (s.SubjectName == subjectName)
+                        Subject subjectClone = SubjectRepository.subjectByCode[subjectCode];
+                        subjectClone.Id = SubjectRepository.subjectByCode[subjectCode].Id;
+
+                        #region Input Subject Name
+                        Console.WriteLine("Escribe el nuevo nombre de la asignatura");
+                        string inputSubjectName = Console.ReadLine();
+
+                        ValidationResult<string> valResultSubjectname = Subject.ValidateSubjectName(inputSubjectName);
+
+                        while (!valResultSubjectname.ValidationSuccesful)
                         {
-                            id = s.Id;
+                            foreach (var msg in valResultSubjectname.Messages)
+                            {
+                                Console.WriteLine(msg);
+                            }
+                            inputSubjectName = Console.ReadLine();
+                            valResultSubjectname = Subject.ValidateSubjectName(inputSubjectName);
                         }
-                    }
-                    #region Input Subject Name
-                    Console.WriteLine("Escribe el nuevo nombre de la asignatura");
-                    string inputSubjectName = Console.ReadLine();
+                        #endregion
 
-                    ValidationResult<string> valResultSubjectname = Subject.ValidateSubjectName(inputSubjectName);
+                        #region Input SubjectCode
+                        Console.WriteLine("Escribe el nuevo codigo numerico de la asignatura");
+                        string inputCodeNumber = Console.ReadLine();
 
-                    while (!valResultSubjectname.ValidationSuccesful)
-                    {
-                        foreach (var msg in valResultSubjectname.Messages)
+                        ValidationResult<string> valResultSubjectCode = Subject.ValidateIdSubject(inputCodeNumber);
+
+                        while (!valResultSubjectCode.ValidationSuccesful)
                         {
-                            Console.WriteLine(msg);
+                            foreach (var msg in valResultSubjectCode.Messages)
+                            {
+                                Console.WriteLine(msg);
+                            }
+                            Console.WriteLine("Entra de nuevo un valor numérico");
+                            inputCodeNumber = Console.ReadLine();
+                            valResultSubjectCode = Subject.ValidateIdSubject(inputCodeNumber);
+
                         }
-                        inputSubjectName = Console.ReadLine();
-                        valResultSubjectname = Subject.ValidateSubjectName(inputSubjectName);
-                    }
-                    #endregion
+                        #endregion
 
-                    #region Input SubjectCode
-                    Console.WriteLine("Escribe el nuevo codigo numerico de la asignatura");
-                    string inputCodeNumber = Console.ReadLine();
-
-                    ValidationResult<int> valResultSubjectCode = Subject.ValidateIdSubject(inputCodeNumber);
-
-                    while (!valResultSubjectCode.ValidationSuccesful)
-                    {
-                        foreach (var msg in valResultSubjectCode.Messages)
+                        if (valResultSubjectname.ValidationSuccesful && valResultSubjectCode.ValidationSuccesful)
                         {
-                            Console.WriteLine(msg);
+                            subjectClone.SubjectName = valResultSubjectname.ValidatedResult;
+                            subjectClone.SubjectCode = valResultSubjectCode.ValidatedResult;
+
+                            var sr = subjectClone.Save<Subject>();
+                            if (sr.SaveValidationSuccesful)
+                            {
+                                Console.WriteLine("Guardado!");
+                            }
+                            else
+                            {
+                                Console.WriteLine("Alumno no guardado debido a errores.");
+                            }
                         }
-                        Console.WriteLine("Entra de nuevo un valor numérico");
-                        inputCodeNumber = Console.ReadLine();
-                        valResultSubjectCode = Subject.ValidateIdSubject(inputCodeNumber);
-
-                    }
-                    #endregion
-
-                    if (valResultSubjectname.ValidationSuccesful && valResultSubjectCode.ValidationSuccesful)
-                    {
-                        var subject = new Subject(valResultSubjectCode.ValidatedResult.ToString(), valResultSubjectname.ValidatedResult);
-                        subject.Id = id;
-                        DbContext.UpdateSubject(subject);
-
                     }
                     else if (option == 4)
                     {
-                        //TODO DeleteAsignatura()
+                        Console.WriteLine("Escribe el nombre de la asignaturA");
+                        string inputName = Console.ReadLine();
+                        var subj = new Subject();
+                        foreach (Subject s in DbContext.subjectList.Values)
+                        {
+                            if (s.SubjectName == inputName)
+                            {
+                                subj = s;
+                            }
+                        }
+                        DbContext.DeleteSubject(subj);
+                        Console.WriteLine("Borrado!");
                     }
 
                     else
@@ -418,21 +459,7 @@ namespace A3_DbContext
                     }
 
                 }
-                else if(option == 4)
-                {
-                    Console.WriteLine("Escribe el nombre de la asignaturA");
-                    string inputName = Console.ReadLine();
-                    var subj = new Subject();
-                    foreach (Subject s in DbContext.subjectList.Values)
-                    {
-                        if (s.SubjectName == inputName)
-                        {
-                            subj = s;
-                        }
-                    }
-                    DbContext.DeleteSubject(subj);
-                    Console.WriteLine("Borrado!");
-                }
+                
                 else
                 {
                     looping = false;
@@ -474,20 +501,20 @@ namespace A3_DbContext
                     }
                     #endregion
 
-                    #region Input Comment
-                    Console.WriteLine("Escribe el dni del alumno que ha realizado ele xamen");
-                    string inputComment = Console.ReadLine();
+                    #region Input Title
+                    Console.WriteLine("Escribe un título para el examen.");
+                    string inputTitle = Console.ReadLine();
 
-                    ValidationResult<String> valResultComment = Exam.ValidateComment(inputComment);
+                    ValidationResult<String> valResultTitle = Exam.ValidateTitle(inputTitle);
 
-                    while (!valResultComment.ValidationSuccesful)
+                    while (!valResultTitle.ValidationSuccesful)
                     {
-                        foreach (var msg in valResultComment.Messages)
+                        foreach (var msg in valResultTitle.Messages)
                         {
                             Console.WriteLine(msg);
                         }
-                        inputComment = Console.ReadLine();
-                        valResultComment = Exam.ValidateComment(inputComment);
+                        inputTitle = Console.ReadLine();
+                        valResultTitle = Exam.ValidateTitle(inputTitle);
                     }
                     #endregion
 
@@ -525,12 +552,12 @@ namespace A3_DbContext
                     }
                     #endregion
 
-                    if (valResultStudent.ValidationSuccesful && valResultFinalMark.ValidationSuccesful && valResultSubject.ValidationSuccesful && valResultComment.ValidationSuccesful)
+                    if (valResultStudent.ValidationSuccesful && valResultFinalMark.ValidationSuccesful && valResultSubject.ValidationSuccesful && valResultTitle.ValidationSuccesful)
                     {
-                        var exam = new Exam(valResultFinalMark.ValidatedResult, valResultStudent.ValidatedResult, valResultSubject.ValidatedResult,valResultComment.ValidatedResult);
+                        var exam = new Exam(valResultFinalMark.ValidatedResult, valResultStudent.ValidatedResult, valResultSubject.ValidatedResult, valResultTitle.ValidatedResult);
 
-
-                        if (exam.Save() == true)
+                        var er = exam.Save<Exam>();
+                        if (er.SaveValidationSuccesful)
                         {
                             Console.WriteLine("Guardado!");
                         }
@@ -543,93 +570,116 @@ namespace A3_DbContext
                 else if (option == 2)
                 {
                     Console.Clear();
-                    Console.WriteLine("Escribe el Dni del estudiante que quieras buscar");
-                    string studentDni = Console.ReadLine();
-                    Console.WriteLine("Escribe el nombre de la asignatura que quieras buscar");
-                    string subjectname = Console.ReadLine();
+                    Console.WriteLine("Escribe el título del examen");
+                    string examTitle = Console.ReadLine();
+                   
 
-                    IEnumerable<Exam> ex= DbContext.ReadExam(subjectname, studentDni);
+                    IEnumerable<Exam> ex= ExamRepository.GetExamByTitle(examTitle);
 
                     foreach(Exam exam in ex)
                     {
-                        Console.WriteLine("Nota Final:" + exam.FinalMark + " en el examen con el siguiente comentario:" + exam.Comment);
+                        Console.WriteLine("Nota Final:" + exam.FinalMark + " en el examen con el siguiente comentario:" + exam.Title);
                     }
                     
 
                 }
                 else if (option == 3)
                 {
-                    Console.WriteLine("Escribe el nombre del estudiante que quieras buscar");
-                    string studentName = Console.ReadLine();
+                    Console.WriteLine("Escribe el título del examen");
+                    string examName = Console.ReadLine();
                     Console.WriteLine("Escribe el nombre de la asignatura que quieras buscar");
                     string subjectname = Console.ReadLine();
 
-                    var exam = new Exam();
-                    foreach (Exam e in DbContext.examList.Values)
+                    if (ExamRepository.ExamByTitle.ContainsKey(examName))
                     {
-                        if (e.Subject.SubjectName == subjectname && e.Student.Name == studentName)
+                        Exam examClone = ExamRepository.ExamByTitle[examName];
+                        examClone.Id = ExamRepository.ExamByTitle[examName].Id;
+
+                        #region Input FInalMArk
+                        Console.WriteLine("Escribe la nota del examen");
+                        string inputFinalmark = Console.ReadLine();
+
+                        ValidationResult<double> valResultFinalMark = Exam.ValidateFinalMark(inputFinalmark);
+
+                        while (!valResultFinalMark.ValidationSuccesful)
                         {
-                            exam = e;
+                            foreach (var msg in valResultFinalMark.Messages)
+                            {
+                                Console.WriteLine(msg);
+                            }
+                            inputFinalmark = Console.ReadLine();
+                            valResultFinalMark = Exam.ValidateFinalMark(inputFinalmark);
                         }
-                    }
-                    #region Input FInalMArk
-                    Console.WriteLine("Escribe la nota del examen");
-                    string inputFinalmark = Console.ReadLine();
+                        #endregion
 
-                    ValidationResult<double> valResultFinalMark = Exam.ValidateFinalMark(inputFinalmark);
+                        #region Input Title
+                        Console.WriteLine("Escribe un título para el examen.");
+                        string inputTitle = Console.ReadLine();
 
-                    while (!valResultFinalMark.ValidationSuccesful)
-                    {
-                        foreach (var msg in valResultFinalMark.Messages)
+                        ValidationResult<String> valResultTitle = Exam.ValidateTitle(inputTitle);
+
+                        while (!valResultTitle.ValidationSuccesful)
                         {
-                            Console.WriteLine(msg);
+                            foreach (var msg in valResultTitle.Messages)
+                            {
+                                Console.WriteLine(msg);
+                            }
+                            inputTitle = Console.ReadLine();
+                            valResultTitle = Exam.ValidateTitle(inputTitle);
                         }
-                        inputFinalmark = Console.ReadLine();
-                        valResultFinalMark = Exam.ValidateFinalMark(inputFinalmark);
-                    }
-                    #endregion
+                        #endregion
 
-                    #region Input StudentDNi
-                    Console.WriteLine("Escribe el dni del alumno que ha realizado ele xamen");
-                    string inputStudentDni = Console.ReadLine();
+                        #region Input StudentDNi
+                        Console.WriteLine("Escribe el dni del alumno que ha realizado ele xamen");
+                        string inputStudentDni = Console.ReadLine();
 
-                    ValidationResult<Student> valResultStudent = Exam.ValidateStudent(inputStudentDni);
+                        ValidationResult<Student> valResultStudent = Exam.ValidateStudent(inputStudentDni);
 
-                    while (!valResultStudent.ValidationSuccesful)
-                    {
-                        foreach (var msg in valResultStudent.Messages)
+                        while (!valResultStudent.ValidationSuccesful)
                         {
-                            Console.WriteLine(msg);
+                            foreach (var msg in valResultStudent.Messages)
+                            {
+                                Console.WriteLine(msg);
+                            }
+                            inputStudentDni = Console.ReadLine();
+                            valResultStudent = Exam.ValidateStudent(inputStudentDni);
                         }
-                        inputStudentDni = Console.ReadLine();
-                        valResultStudent = Exam.ValidateStudent(inputStudentDni);
-                    }
-                    #endregion
+                        #endregion
 
-                    #region Input SubjectName
-                    Console.WriteLine("Escribe el el nombre de la asignatura dele xamen");
-                    string inputSubjectName = Console.ReadLine();
+                        #region Input SubjectName
+                        Console.WriteLine("Escribe el el nombre de la asignatura dele xamen");
+                        string inputSubjectName = Console.ReadLine();
 
-                    ValidationResult<Subject> valResultSubject = Exam.ValidateSubject(inputSubjectName);
+                        ValidationResult<Subject> valResultSubject = Exam.ValidateSubject(inputSubjectName);
 
-                    while (!valResultSubject.ValidationSuccesful)
-                    {
-                        foreach (var msg in valResultSubject.Messages)
+                        while (!valResultSubject.ValidationSuccesful)
                         {
-                            Console.WriteLine(msg);
+                            foreach (var msg in valResultSubject.Messages)
+                            {
+                                Console.WriteLine(msg);
+                            }
+                            inputStudentDni = Console.ReadLine();
+                            valResultSubject = Exam.ValidateSubject(inputSubjectName);
                         }
-                        inputStudentDni = Console.ReadLine();
-                        valResultSubject = Exam.ValidateSubject(inputSubjectName);
-                    }
-                    #endregion
+                        #endregion
 
-                    if (valResultStudent.ValidationSuccesful && valResultFinalMark.ValidationSuccesful && valResultSubject.ValidationSuccesful)
-                    {
-                        exam.FinalMark = valResultFinalMark.ValidatedResult;
-                        exam.Student = valResultStudent.ValidatedResult;
-                        exam.Subject = valResultSubject.ValidatedResult;
+                        if (valResultStudent.ValidationSuccesful && valResultFinalMark.ValidationSuccesful && valResultSubject.ValidationSuccesful && valResultTitle.ValidationSuccesful)
+                        {
+                            examClone.FinalMark = valResultFinalMark.ValidatedResult;
+                            examClone.Title = valResultTitle.ValidatedResult;
+                            examClone.Student = valResultStudent.ValidatedResult;
+                            examClone.Subject = valResultSubject.ValidatedResult;
 
-                        DbContext.UpdateExam(exam);
+                            var er = examClone.Save<Exam>();
+                            if (er.SaveValidationSuccesful)
+                            {
+                                Console.WriteLine("Guardado!");
+                            }
+                            else
+                            {
+                                Console.WriteLine("Asgnatrua no guardada debido a errores.");
+                            }
+                        }
                     }
 
                 }

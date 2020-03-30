@@ -1,0 +1,100 @@
+﻿<Window x:Class="A4_WPF.MainWindow"
+        
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:A4_WPF"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d" Height="600" Width="1024"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}" 
+        ResizeMode="NoResize" WindowStyle="None" AllowsTransparency="True">
+
+    <Grid>
+        <materialDesign:ColorZone
+                  Mode="PrimaryDark"
+                  Padding="16">
+            <DockPanel>
+                <materialDesign:PopupBox
+                          DockPanel.Dock="Right"
+                          PlacementMode="BottomAndAlignRightEdges">
+                    <ListBox>
+                          <ListBoxItem>
+                                Hello World
+                          </ListBoxItem>
+                          <ListBoxItem>
+                               Nice Popup
+                          </ListBoxItem>
+                          <ListBoxItem>
+                               Goodbye.
+                          </ListBoxItem>
+                    </ListBox>
+                </materialDesign:PopupBox>
+                <StackPanel Orientation="Horizontal">
+
+                    <TextBlock Text="Teacher Notebook App "
+                       VerticalAlignment="Center"
+                       Margin="16 0 0 0">
+                       Material Design In XAML Toolkit
+                    </TextBlock>
+                </StackPanel>
+            </DockPanel>
+        </materialDesign:ColorZone>
+        <Grid Margin="30,80,834,485">
+            
+        </Grid>
+    </Grid>
+    
+    
+
+
+</Window>
+
+
+
+
+<!--Tests-->
+
+<!--<Border Padding="10">       
+         <StackPanel>
+             -->
+<!--Title-->
+<!--
+            <Grid>
+                <TextBlock Text="Base de datos profesores" TextAlignment="Center" FontWeight="Bold"  Margin="0 2">
+                </TextBlock>
+            </Grid>
+            <Border Padding="5">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Margin=" 10 0 10 0" Grid.Column="0" Content="Hola"/>
+                <Button Margin=" 10 0 10 0" Grid.Column="1" Content="Hello"/>
+                <Button Margin=" 10 0 10 0" Grid.Column="2" Content="Namaste"/>
+            </Grid>
+            </Border>
+            <Border Padding="5">
+                <Grid>
+                   <Grid.ColumnDefinitions>
+                          <ColumnDefinition Width="*"></ColumnDefinition>
+                           <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Base de datos profesores" Grid.Column="1" TextAlignment="Center" FontWeight="Bold"  Margin="0 2"></TextBlock>
+                    <TextBlock Text="dsgd" Grid.Column="0" TextAlignment="Center" FontWeight="Bold"  Margin="0 2"></TextBlock>
+                </Grid>
+                
+            </Border>
+            <Grid>
+                <TextBlock Text="dsgd" Grid.Column="0" TextAlignment="Justify" FontWeight="Bold"  Margin="0 2"></TextBlock>
+            </Grid>
+        </StackPanel>
+    </Border>-->

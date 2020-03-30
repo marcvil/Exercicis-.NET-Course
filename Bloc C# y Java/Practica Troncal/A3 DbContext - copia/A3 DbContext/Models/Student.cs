@@ -131,7 +131,11 @@ namespace A3_DbContext
             var saveResult = base.Save<Student>();
             return saveResult;
         }
-
+        public DeleteValidation<Student> Delete()
+        {
+            var deleteResult = base.Delete<Student>();
+            return deleteResult;
+        }
 
         public override ValidationResult Validate()
         {

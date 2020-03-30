@@ -22,7 +22,6 @@ namespace A3_DbContext
 
         public override SaveValidation<Student> Update(Student entity)
         {
-
             var output = base.Update(entity);
 
             if (output.SaveValidationSuccesful)
@@ -32,6 +31,19 @@ namespace A3_DbContext
 
             return output;
         }
+
+        public override DeleteValidation<Student> Delete(Student entity)
+        {
+            var output = base.Delete(entity);
+
+            if (output.DeleteValidationSuccesful)
+            {
+                studentByDni.Remove(output.Entity.Dni);
+            }
+
+            return output;
+        }
+
 
         public static Student GetStudentByDni(string strDni)
         {

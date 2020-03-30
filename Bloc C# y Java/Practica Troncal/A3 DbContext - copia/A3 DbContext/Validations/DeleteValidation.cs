@@ -4,13 +4,48 @@ using System.Collections.Generic;
 
 namespace A3_DbContext
 {
-	public class DeleteValidation<T>
+	public class DeleteValidation<T> where T : Entity
 	{
-		public T ValidatedDeleteResult { get; set; }
+		public ValidationResult Validation { get; set; } = new ValidationResult();
 
-		public bool DeleteValidationSuccesful { get; set; }
+		public bool DeleteValidationSuccesful
+		{
+			get
+			{
+				return Validation.ValidationSuccesful;
+			}
 
-		public List<string> DeleteResultMessages { get; set; } = new List<string>();
+			set
+			{
+				Validation.ValidationSuccesful = value;
+			}
+		}
+		public List<string> DeleteValidationMessages { get; set; } = new List<string>();
 
+		public T Entity { get; set; }
+
+
+		//constructor para que sea true por defecto
+		public DeleteValidation()
+		{
+
+		}
+		public DeleteValidation(bool initTrue)
+		{
+			this.DeleteValidationSuccesful = initTrue;
+		}
+
+
+
+		public DeleteValidation<TOut> Cast<TOut>() where TOut : Entity
+		{
+			var output = new DeleteValidation<TOut>
+			{
+				Entity = this.Entity as TOut,
+				Validation = this.Validation
+			};
+
+			return output;
+		}
 	}
 }

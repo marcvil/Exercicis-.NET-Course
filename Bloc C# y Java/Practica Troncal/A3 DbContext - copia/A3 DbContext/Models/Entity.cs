@@ -31,7 +31,20 @@ namespace A3_DbContext
             result.Validation = CurrentValidation;
             return result;
         }
+        public virtual DeleteValidation<T> Delete<T>() where T : Entity
+        {
+            var result = new DeleteValidation<T>();
+            CurrentValidation = Validate();
+            var repo = GetRepo<T>();
 
+            if (CurrentValidation.ValidationSuccesful)
+            {
+                result = repo.Delete(this as T);
+            }
+
+            result.Validation = CurrentValidation;
+            return result;
+        }
 
         public virtual ValidationResult Validate()
         {

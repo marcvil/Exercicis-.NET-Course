@@ -267,9 +267,21 @@ namespace A3_DbContext
                     Console.Clear();
                     Console.WriteLine("Escribe el DNI");
                     string inputDni = Console.ReadLine();
+                    if (StudentRepository.studentByDni.ContainsKey(inputDni))
+                    {
+                        Student studentClone = StudentRepository.studentByDni[inputDni];
 
-                    DbContext.DeleteStudent(DbContext.studentByDni[inputDni]);
-                    Console.WriteLine("Borrado!");
+                        var sr = studentClone.Delete<Student>();
+                        if (sr.DeleteValidationSuccesful)
+                        {
+                            Console.WriteLine("Borrado");
+                        }
+                        else
+                        {
+                            Console.WriteLine("No Borrado debido a errores");
+                        }
+                    }
+                    
 
                 }
                 else if (option == 5)
@@ -501,22 +513,7 @@ namespace A3_DbContext
                     }
                     #endregion
 
-                    #region Input Title
-                    Console.WriteLine("Escribe un título para el examen.");
-                    string inputTitle = Console.ReadLine();
-
-                    ValidationResult<String> valResultTitle = Exam.ValidateTitle(inputTitle);
-
-                    while (!valResultTitle.ValidationSuccesful)
-                    {
-                        foreach (var msg in valResultTitle.Messages)
-                        {
-                            Console.WriteLine(msg);
-                        }
-                        inputTitle = Console.ReadLine();
-                        valResultTitle = Exam.ValidateTitle(inputTitle);
-                    }
-                    #endregion
+                    
 
                     #region Input StudentDNi
                     Console.WriteLine("Escribe el dni del alumno que ha realizado ele xamen");
@@ -549,6 +546,23 @@ namespace A3_DbContext
                         }
                         inputStudentDni = Console.ReadLine();
                         valResultSubject = Exam.ValidateSubject(inputSubjectName);
+                    }
+                    #endregion
+
+                    #region Input Title
+                    Console.WriteLine("Escribe el título de este examen. Ejemplo: AA1. El formato final será: DNIAlumno_SubjectNAme_Titulo");
+                    string inputTitle = Console.ReadLine();
+
+                    ValidationResult<String> valResultTitle = Exam.ValidateTitle(inputStudentDni +"_" + inputSubjectName + "_" +inputTitle);
+
+                    while (!valResultTitle.ValidationSuccesful)
+                    {
+                        foreach (var msg in valResultTitle.Messages)
+                        {
+                            Console.WriteLine(msg);
+                        }
+                        inputTitle = Console.ReadLine();
+                        valResultTitle = Exam.ValidateTitle(inputTitle);
                     }
                     #endregion
 
@@ -585,15 +599,17 @@ namespace A3_DbContext
                 }
                 else if (option == 3)
                 {
+                    Console.WriteLine("Escribe el dni de alumno");
+                    string studentDni = Console.ReadLine();
                     Console.WriteLine("Escribe el título del examen");
                     string examName = Console.ReadLine();
                     Console.WriteLine("Escribe el nombre de la asignatura que quieras buscar");
                     string subjectname = Console.ReadLine();
 
-                    if (ExamRepository.ExamByTitle.ContainsKey(examName))
+                    if (ExamRepository.ExamByTitle.ContainsKey(studentDni + "_" + subjectname + "_" + examName))
                     {
-                        Exam examClone = ExamRepository.ExamByTitle[examName];
-                        examClone.Id = ExamRepository.ExamByTitle[examName].Id;
+                        Exam examClone = ExamRepository.ExamByTitle[studentDni + "_" + subjectname + "_" + examName];
+                        examClone.Id = ExamRepository.ExamByTitle[studentDni + "_" + subjectname + "_" + examName].Id;
 
                         #region Input FInalMArk
                         Console.WriteLine("Escribe la nota del examen");

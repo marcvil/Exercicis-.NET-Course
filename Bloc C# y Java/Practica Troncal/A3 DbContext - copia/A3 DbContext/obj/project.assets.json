@@ -8,19 +8,19 @@
     ".NETCoreApp,Version=v3.0": []
   },
   "packageFolders": {
-    "C:\\Users\\formacio\\.nuget\\packages\\": {}
+    "C:\\Users\\Marc\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\formacio\\Desktop\\Marc\\Exercicis-.NET-Course\\Bloc C# y Java\\Practica Troncal\\A3 DbContext - copia\\A3 DbContext\\A3 DbContext.csproj",
+      "projectUniqueName": "C:\\Users\\Marc\\Desktop\\ITAcademy\\Exercicis\\Exercicis-.NET-Course\\Bloc C# y Java\\Practica Troncal\\A3 DbContext - copia\\A3 DbContext\\A3 DbContext.csproj",
       "projectName": "A3 DbContext",
-      "projectPath": "C:\\Users\\formacio\\Desktop\\Marc\\Exercicis-.NET-Course\\Bloc C# y Java\\Practica Troncal\\A3 DbContext - copia\\A3 DbContext\\A3 DbContext.csproj",
-      "packagesPath": "C:\\Users\\formacio\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\formacio\\Desktop\\Marc\\Exercicis-.NET-Course\\Bloc C# y Java\\Practica Troncal\\A3 DbContext - copia\\A3 DbContext\\obj\\",
+      "projectPath": "C:\\Users\\Marc\\Desktop\\ITAcademy\\Exercicis\\Exercicis-.NET-Course\\Bloc C# y Java\\Practica Troncal\\A3 DbContext - copia\\A3 DbContext\\A3 DbContext.csproj",
+      "packagesPath": "C:\\Users\\Marc\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Marc\\Desktop\\ITAcademy\\Exercicis\\Exercicis-.NET-Course\\Bloc C# y Java\\Practica Troncal\\A3 DbContext - copia\\A3 DbContext\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\formacio\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Marc\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

@@ -63,5 +63,22 @@ namespace A3_DbContext
 
             return output;
         }
+        public virtual DeleteValidation<T> Delete(T entity)
+        {
+            var output = new DeleteValidation<T>();
+
+            if (DbSet.ContainsKey(entity.Id))
+            {
+                output.DeleteValidationSuccesful = false;
+                output.DeleteValidationMessages.Add("No existe el ID");
+            }
+
+            if (output.DeleteValidationSuccesful)
+            {
+                DbSet.Remove(output.Entity.Id);
+            }
+
+            return output;
+        }
     }
 }

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -15,7 +15,7 @@
 
   <ItemGroup>
     <Reference Include="Common.Lib">
-      <HintPath>..\..\..\..\..\..\..\training Jose\Ejemplos Patrones\0 Core\Core.Lib\bin\Debug\netstandard2.0\Common.Lib.dll</HintPath>
+      <HintPath>..\Common.Lib\bin\Debug\netstandard2.0\Common.Lib.dll</HintPath>
     </Reference>
   </ItemGroup>
 

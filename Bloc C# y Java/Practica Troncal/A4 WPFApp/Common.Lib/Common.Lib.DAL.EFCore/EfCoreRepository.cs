@@ -1,4 +1,5 @@
 ﻿using Common.Lib.Core;
+
 using Common.Lib.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -112,5 +113,6 @@ namespace Common.Lib.DAL.EFCore
 
             return output;
         }
+
     }
 }

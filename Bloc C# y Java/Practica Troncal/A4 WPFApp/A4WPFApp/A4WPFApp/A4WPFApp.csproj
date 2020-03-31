@@ -15,4 +15,10 @@
     <Folder Include="App\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="A4.DAL">
+      <HintPath>..\A4.DAL\bin\Debug\netstandard2.1\A4.DAL.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

@@ -9,7 +9,7 @@ namespace A4.Lib.RepositoryInterfaces
 {
     public interface IStudentRepo : IRepository<Student>
     {
-        Student GetStudentByDni();
+        Student GetStudentByDni(string str);
 
     }
 }

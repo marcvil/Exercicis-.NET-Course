@@ -9,15 +9,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Repositories\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Reference Include="A4.Lib">
       <HintPath>..\A4.Lib\bin\Debug\netstandard2.0\A4.Lib.dll</HintPath>
     </Reference>
     <Reference Include="Common.Lib">
       <HintPath>..\..\Common.Lib\Common.Lib\bin\Debug\netstandard2.0\Common.Lib.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Lib.DAL.EFCore">
+      <HintPath>..\..\Common.Lib\Common.Lib.DAL.EFCore\bin\Debug\netstandard2.0\Common.Lib.DAL.EFCore.dll</HintPath>
     </Reference>
   </ItemGroup>
 

@@ -21,16 +21,24 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="App\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Reference Include="A4.DAL">
       <HintPath>..\A4.DAL\bin\Debug\netstandard2.1\A4.DAL.dll</HintPath>
+    </Reference>
+    <Reference Include="A4.Lib">
+      <HintPath>..\A4.Lib\bin\Debug\netstandard2.0\A4.Lib.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Lib">
+      <HintPath>..\..\Common.Lib\Common.Lib\bin\Debug\netstandard2.0\Common.Lib.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Lib.DAL.EFCore">
+      <HintPath>..\..\Common.Lib\Common.Lib.DAL.EFCore\bin\Debug\netstandard2.0\Common.Lib.DAL.EFCore.dll</HintPath>
     </Reference>
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="AcademyDatabase.db">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Appsettings.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

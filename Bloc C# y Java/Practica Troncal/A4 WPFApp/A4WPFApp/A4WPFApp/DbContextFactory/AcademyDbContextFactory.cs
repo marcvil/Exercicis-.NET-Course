@@ -8,8 +8,6 @@ using A4_DAL;
 using System.IO;
 
 
-
-
 namespace A4WPFApp.DbContextFactory
 {
     public class AcademyDbContextFactory : IDesignTimeDbContextFactory<AcademyDbContext>

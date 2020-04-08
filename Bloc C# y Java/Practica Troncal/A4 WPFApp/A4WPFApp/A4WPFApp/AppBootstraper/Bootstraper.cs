@@ -10,7 +10,7 @@ using A4_DAL;
 using A4.DAL.Repositories;
 using A4WPFApp.DbContextFactory;
 
-namespace A4WPFApp.App
+namespace A4WPFApp.AppBootstraper
 {
     public class Bootstraper
     {

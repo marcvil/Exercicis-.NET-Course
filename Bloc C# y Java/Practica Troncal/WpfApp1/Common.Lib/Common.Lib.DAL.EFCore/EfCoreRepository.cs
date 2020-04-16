@@ -40,8 +40,7 @@ namespace Common.Lib.DAL.EFCore
 
         public virtual SaveValidation<T> Add(T entity)
         {
-            // creo una conexión contra la DB guardo la entity y le devuelvo 
-            // a quien me haya hecho la llamada
+           
             var output = new SaveValidation<T>
             {
                 SaveValidationSuccesful = true

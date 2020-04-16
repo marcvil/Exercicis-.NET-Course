@@ -2,6 +2,7 @@
 using Common.Lib.Infrastructure;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace A4.Lib.Models
@@ -11,20 +12,39 @@ namespace A4.Lib.Models
         public double FinalMark { get; set; }
 
         public string Title { get; set; }
-        public Student Student { get; set; }
+        public Student Student
+        {
+            get
+            {
+                var repo = Student.DepCon.Resolve<IRepository<Student>>();
+                var studentList = repo.QueryAll().ToList();
 
-        public Subject Subject { get; set; }
+                 return studentList.First(x => x.Id == StudentId);
+            }
+        }
+        public Guid StudentId { get; set; }
+        public Subject Subject 
+        {
+             get
+             {
+                var repo = Subject.DepCon.Resolve<IRepository<Subject>>();
+                var subjectList = repo.QueryAll().ToList();
+
+                return subjectList.First(x => x.Id == SubjectId);
+             }
+        }
+        public Guid SubjectId { get; set; }
 
         public Exam()
         {
 
         }
-        public Exam(double finalMark, Student student, Subject subject, String title)
+        public Exam(double finalMark, Guid student, Guid subject, String title)
         {
 
             this.FinalMark = finalMark;
-            this.Student = student;
-            this.Subject = subject;
+            this.StudentId = student;
+            this.SubjectId = subject;
             this.Title = title;
         }
 
@@ -88,7 +108,7 @@ namespace A4.Lib.Models
 
 
 
-        public static ValidationResult<Student> ValidateStudent(string dniNumber)
+        public static ValidationResult<Student> ValidateStudent(string dniNumber, Guid currentId = default)
         {
             ValidationResult<Student> tempIdStudent = new ValidationResult<Student>();
 
@@ -104,40 +124,47 @@ namespace A4.Lib.Models
 
             if (tempIdStudent.ValidationSuccesful == true)
             {
-                //tempIdStudent.ValidatedResult = StudentRepository.GetStudentByDni(dniNumber);
+                var st = new Student();
+                var repo = Student.DepCon.Resolve<IRepository<Student>>();
+                var studentList = repo.QueryAll().ToList();
+
+                st = studentList.First(x => x.Dni == dniNumber);
+
+
+                tempIdStudent.ValidatedResult = st;
             }
 
             return tempIdStudent;
         }
 
-        public static ValidationResult<Subject> ValidateSubject(string subjectName)
+        public static ValidationResult<Subject> ValidateSubject(string subjectCode, Guid currentId = default)
         {
-            ValidationResult<Subject> tempSubject = new ValidationResult<Subject>();
+            ValidationResult<Subject> tempSubjectId = new ValidationResult<Subject>();
 
-            tempSubject.ValidationSuccesful = true;
+            tempSubjectId.ValidationSuccesful = true;
 
             #region Check null or empty
-            if (string.IsNullOrEmpty(subjectName))
+            if (string.IsNullOrEmpty(subjectCode))
             {
-                tempSubject.ValidationSuccesful = false;
-                tempSubject.Messages.Add("dninumber null or empty.");
+                tempSubjectId.ValidationSuccesful = false;
+                tempSubjectId.Messages.Add("dninumber null or empty.");
             }
             #endregion
-            /*
-            if (tempSubject.ValidationSuccesful == true)
+            
+            if (tempSubjectId.ValidationSuccesful == true)
             {
-                foreach (Subject s in SubjectRepository.subjectByCode.Values)
-                {
-                    if (s.SubjectName == subjectName)
-                    {
-                        tempSubject.ValidatedResult = s;
-                    }
-                }
+                Subject subj = new Subject();
+                var repo = Subject.DepCon.Resolve<IRepository<Subject>>();
+                var subjectList = repo.QueryAll().ToList();
+
+                subj = subjectList.First(x => x.SubjectCode == subjectCode);
+
+                
+                tempSubjectId.ValidatedResult = subj;
 
             }
-            */
-
-            return tempSubject;
+            
+            return tempSubjectId;
         }
         #endregion
 
@@ -172,7 +199,7 @@ namespace A4.Lib.Models
         }
         public void ValidateSubject(ValidationResult valResult)
         {
-            var subjectValidation = ValidateSubject(this.Subject.SubjectName);
+            var subjectValidation = ValidateSubject(this.Subject.SubjectCode);
             if (subjectValidation.ValidationSuccesful == false)
             {
                 valResult.ValidationSuccesful = false;
@@ -182,9 +209,9 @@ namespace A4.Lib.Models
         #endregion
 
 
-        public SaveValidation<Student> Save()
+        public SaveValidation<Exam> Save()
         {
-            var saveResult = base.Save<Student>();
+            var saveResult = base.Save<Exam>();
             return saveResult;
         }
 

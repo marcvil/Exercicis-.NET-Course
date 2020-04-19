@@ -2,6 +2,7 @@
 using Common.Lib.Infrastructure;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace A4.Lib.Models
@@ -40,6 +41,19 @@ namespace A4.Lib.Models
             }
             #endregion
 
+            #region Check if exists
+
+            var repo = Student.DepCon.Resolve<IRepository<Student>>();
+            var studentName = repo.QueryAll().FirstOrDefault(x => x.Name == name);
+
+            if (studentName != default)
+            {
+                tempName.ValidationSuccesful = false;
+                tempName.Messages.Add("Ya existe un alumno con este nombre.");
+
+            }
+            #endregion
+
             if (tempName.ValidationSuccesful == true)
             {
                 tempName.ValidatedResult = name;
@@ -59,6 +73,19 @@ namespace A4.Lib.Models
             {
                 tempMail.ValidationSuccesful = false;
                 tempMail.Messages.Add("mail null or empty.");
+            }
+            #endregion
+
+            #region Check if exists
+
+            var repo = Student.DepCon.Resolve<IRepository<Student>>();
+            var studentmail = repo.QueryAll().FirstOrDefault(x => x.Mail == mail);
+
+            if (studentmail != default)
+            {
+                tempMail.ValidationSuccesful = false;
+                tempMail.Messages.Add("Ya existe un alumno con este mail, el mail no puede ser repetido. prueba con otro");
+
             }
             #endregion
 

@@ -74,6 +74,16 @@ namespace A4.Lib.Models
             }
             #endregion
 
+            #region check if between 0 and 10
+
+           
+            if (doublevar>10 || doublevar <0)
+            {
+                tempfinalMark.ValidationSuccesful = false;
+                tempfinalMark.Messages.Add("Final mark has to be a value between 0 and 10");
+            }
+            #endregion
+
             if (tempfinalMark.ValidationSuccesful == true)
             {
                 tempfinalMark.ValidatedResult = doublevar;
@@ -92,11 +102,11 @@ namespace A4.Lib.Models
             if (string.IsNullOrEmpty(title))
             {
                 tempTitle.ValidationSuccesful = false;
-                tempTitle.Messages.Add("dninumber null or empty.");
+                tempTitle.Messages.Add("Title null or empty");
             }
             #endregion
 
-
+           
 
             if (tempTitle.ValidationSuccesful == true)
             {

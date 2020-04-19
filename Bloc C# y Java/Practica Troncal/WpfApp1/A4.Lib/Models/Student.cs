@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using Common.Lib.Core;
 using Common.Lib.Infrastructure;
 
 namespace A4.Lib.Models
@@ -11,13 +13,9 @@ namespace A4.Lib.Models
 
         public string Dni { get; set; }
 
-        /*  public List<Exam> Exams
-          {
-             // get
-              {
-                 // return DbContext.examList.Values.Where(e => e.Student.Id == this.Id).ToList();
-              }
-          }*/
+
+        
+
 
         public Student(int lockerKeyNumber, string dni, string name, string mail)
         {
@@ -32,7 +30,7 @@ namespace A4.Lib.Models
         }
 
         #region Static validations
-        public static ValidationResult<int> ValidateLockerkeyNumber(string lockerKeyNumber)
+        public static ValidationResult<int> ValidateLockerkeyNumber(string lockerKeyNumber, Guid currentId = default)
         {
             ValidationResult<int> tempLockerkeyNumber = new ValidationResult<int>();
 
@@ -58,6 +56,22 @@ namespace A4.Lib.Models
             }
             #endregion
 
+
+            #region Check if exists
+            if (parsedConversion)
+            {
+                var repo = Student.DepCon.Resolve<IRepository<Student>>();
+                var studentLockerKeyNumber = repo.QueryAll().FirstOrDefault(x => x.LockerKeyNumber == lockerKeyInt);
+
+                if (studentLockerKeyNumber != null && studentLockerKeyNumber.Id != currentId)
+                {
+                    tempLockerkeyNumber.ValidationSuccesful = false;
+                    tempLockerkeyNumber.Messages.Add("Locker key already exists");
+
+                }
+
+            }
+            #endregion
             if (tempLockerkeyNumber.ValidationSuccesful == true)
             {
                 tempLockerkeyNumber.ValidatedResult = lockerKeyInt;
@@ -66,27 +80,37 @@ namespace A4.Lib.Models
             return tempLockerkeyNumber;
         }
 
-        public static ValidationResult<string> ValidateDni(string dniNumber)
+        public static ValidationResult<string> ValidateDni(string dniNumber, Guid currentId = default)
         {
-            ValidationResult<string> tempIdSubject = new ValidationResult<string>();
+            ValidationResult<string> tempDni = new ValidationResult<string>();
 
-            tempIdSubject.ValidationSuccesful = true;
+            tempDni.ValidationSuccesful = true;
 
             #region Check null or empty
             if (string.IsNullOrEmpty(dniNumber))
             {
-                tempIdSubject.ValidationSuccesful = false;
-                tempIdSubject.Messages.Add("dninumber null or empty.");
+                tempDni.ValidationSuccesful = false;
+                tempDni.Messages.Add("dninumber null or empty.");
             }
             #endregion
 
+            #region Check if exists
+            var repo = Student.DepCon.Resolve<IRepository<Student>>();
+            var studentDni = repo.QueryAll().FirstOrDefault(x => x.Dni == dniNumber);
 
-            if (tempIdSubject.ValidationSuccesful == true)
+            if (studentDni != default )
             {
-                tempIdSubject.ValidatedResult = dniNumber;
+                tempDni.ValidationSuccesful = false;
+                tempDni.Messages.Add("Este DNi ya existe");
+
+            }
+            #endregion
+            if (tempDni.ValidationSuccesful == true)
+            {
+                tempDni.ValidatedResult = dniNumber;
             }
 
-            return tempIdSubject;
+            return tempDni;
         }
 
         #endregion
@@ -154,19 +178,7 @@ namespace A4.Lib.Models
 
             return output;
         }
-        /*
-        public override Repository<T> GetRepo<T>()
-        {
-            var output = new StudentRepository();
-
-            return output as Repository<T>;
-        }
-        public StudentRepository GetStudentRepo()
-        {
-
-            return GetRepo<Student>() as StudentRepository;
-        }
-        */
+        
     }
 }
 

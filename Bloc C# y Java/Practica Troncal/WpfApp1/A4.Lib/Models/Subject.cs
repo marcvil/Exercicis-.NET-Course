@@ -2,6 +2,7 @@
 using Common.Lib.Infrastructure;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace A4.Lib.Models
@@ -23,23 +24,35 @@ namespace A4.Lib.Models
         }
 
         #region static validations
-        public static ValidationResult<string> ValidateSubjectName(string subjectname)
+        public static ValidationResult<string> ValidateSubjectName(string subjectName)
         {
             ValidationResult<string> tempsubjectName = new ValidationResult<string>();
 
             tempsubjectName.ValidationSuccesful = true;
 
             #region Check null or empty
-            if (string.IsNullOrEmpty(subjectname))
+            if (string.IsNullOrEmpty(subjectName))
             {
                 tempsubjectName.ValidationSuccesful = false;
                 tempsubjectName.Messages.Add("subjectName null or empty.");
             }
             #endregion
 
+            #region Check if exists
+            var repo = Subject.DepCon.Resolve<IRepository<Subject>>();
+            var subjectNameList = repo.QueryAll().FirstOrDefault(x => x.SubjectName == subjectName);
+
+            if (subjectName != default)
+            {
+                tempsubjectName.ValidationSuccesful = false;
+                tempsubjectName.Messages.Add("Ya existe una asignatura con este nombre");
+
+            }
+            #endregion
+
             if (tempsubjectName.ValidationSuccesful == true)
             {
-                tempsubjectName.ValidatedResult = subjectname;
+                tempsubjectName.ValidatedResult = subjectName;
             }
 
             return tempsubjectName;
@@ -56,6 +69,18 @@ namespace A4.Lib.Models
             {
                 tempIdSubject.ValidationSuccesful = false;
                 tempIdSubject.Messages.Add("subjectName null or empty.");
+            }
+            #endregion
+
+            #region Check if exists
+            var repo = Subject.DepCon.Resolve<IRepository<Subject>>();
+            var subjectCodeList = repo.QueryAll().FirstOrDefault(x => x.SubjectCode == subjectCode);
+
+            if (subjectCode != default)
+            {
+                tempIdSubject.ValidationSuccesful = false;
+                tempIdSubject.Messages.Add("Ya existe una asignatura con este codigo");
+
             }
             #endregion
 

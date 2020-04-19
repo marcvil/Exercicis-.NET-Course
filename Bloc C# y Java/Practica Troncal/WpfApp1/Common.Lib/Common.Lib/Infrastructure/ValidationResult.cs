@@ -10,6 +10,7 @@ namespace Common.Lib.Infrastructure
 
         public List<string> Messages { get; set; } = new List<string>();
 
+       
     }
     public class ValidationResult<T> : ValidationResult
     {

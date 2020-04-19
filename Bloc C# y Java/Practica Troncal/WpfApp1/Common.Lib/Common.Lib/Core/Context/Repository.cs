@@ -50,19 +50,20 @@ namespace Common.Lib.Core
         {
             var output = new SaveValidation<T>();
 
-            if (entity.Id == Guid.Empty)
-            {
-                entity.Id = Guid.NewGuid();
-            }
-            if (DbSet.ContainsKey(entity.Id))
+            if (entity.Id == default(Guid))
             {
                 output.SaveValidationSuccesful = false;
-                output.SaveValidationMessages.Add("Ya existe con este GUID");
+                output.SaveValidationMessages.Add("Cannot update an entity without GUID.");
+            }
+            if (entity.Id != default(Guid) && !DbSet.ContainsKey(entity.Id))
+            {
+                output.SaveValidationSuccesful = false;
+                output.SaveValidationMessages.Add("An entity with this GUID doesn't exist");
             }
 
             if (output.SaveValidationSuccesful)
             {
-                DbSet[output.Entity.Id] = output.Entity;
+                DbSet[entity.Id] = entity;
             }
 
             return output;

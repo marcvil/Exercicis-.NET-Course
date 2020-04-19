@@ -24,7 +24,14 @@ namespace Common.Lib.Infrastructure
 				Validation.ValidationSuccesful = value;
 			}
 		}
-		public List<string> SaveValidationMessages { get; set; } = new List<string>();
+		public List<string> SaveValidationMessages
+		{
+			get
+			{
+				return Validation.Messages;
+			}
+
+		}
 
 		public T Entity { get; set; }
 
